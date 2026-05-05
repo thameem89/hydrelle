@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Camera, Globe, ShoppingBag } from 'lucide-react';
+import { FaInstagram, FaFacebook, FaAmazon } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -19,21 +19,21 @@ const Footer = () => {
               target="_blank"
               className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all"
             >
-              <Camera size={18} />
+              <FaInstagram size={18} />
             </Link>
             <Link 
               href="https://www.facebook.com/profile.php?id=61587017040966&rdid=ObHiVV8Z7R56FAiD#" 
               target="_blank"
               className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all"
             >
-              <Globe size={18} />
+              <FaFacebook size={18} />
             </Link>
             <Link 
               href="https://www.amazon.ae/s?me=A9209H9CKPLQW" 
               target="_blank"
               className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all"
             >
-              <ShoppingBag size={18} />
+              <FaAmazon size={18} />
             </Link>
           </div>
         </div>
