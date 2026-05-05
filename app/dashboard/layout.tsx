@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
 import DashboardHeader from '@/components/DashboardHeader';
 import { Menu, X, User, ShieldCheck } from 'lucide-react';
@@ -11,8 +12,18 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [role, setRole] = useState<'customer' | 'admin'>('customer');
+
+  // Auto-detect role from path
+  useEffect(() => {
+    if (pathname.includes('/dashboard/admin')) {
+      setRole('admin');
+    } else {
+      setRole('customer');
+    }
+  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-[#F9F7F2]">
