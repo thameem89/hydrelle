@@ -171,6 +171,20 @@ const ProductPage = () => {
               )}
             </div>
 
+            {/* Presentation Image */}
+            {product.details?.presentation_image && (
+              <div className="pt-8">
+                <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-lg border border-earth-soft/10">
+                  <Image 
+                    src={product.details.presentation_image} 
+                    alt={`${product.name} presentation`}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </div>
+            )}
+
             {/* Rich Details Sections */}
             <div className="space-y-12 pt-10 border-t border-earth-soft/20">
               {product.details?.product_presentation && (

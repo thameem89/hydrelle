@@ -5,31 +5,42 @@
     "category": "Serum",
     "price": "AED 99.00 / $26.95",
     "amazon_link": "https://amzn.eu/d/0bcFPi2J",
-    "description": "Anti-Aging Face Treatment, Skin Regeneration Serum Hyaluronic Acid, Hydrating, Brightening & Youthful Glow, Slow Aging Formula Korean Skincare for All Skin Types.",
+    "description": "Anti-Aging Face Treatment, Skin Regeneration Serum Hyaluronic Acid, Hydrating, Brightening & Youthful Glow, Slow Aging Formula Korean Skincare for All Skin Types",
     "images": [
-      "https://hydrelleskincare.com/assets/1-2fFCd1oU.jpg",
-      "https://hydrelleskincare.com/assets/1-2fFCd1oU.jpg"
+      "https://www.hydrelleskincare.com/assets/1-2fFCd1oU.jpg",
+      "https://www.hydrelleskincare.com/assets/2-Dh4bqizM.jpg",
+      "https://www.hydrelleskincare.com/assets/3-DYeNyLdB.jpg",
+      "https://www.hydrelleskincare.com/assets/4-B0Ys-GKm.jpg",
+      "https://www.hydrelleskincare.com/assets/5-B30mEEHk.jpg",
+      "https://www.hydrelleskincare.com/assets/6-6qKUXrdl.jpg",
+      "https://www.hydrelleskincare.com/assets/7-DKnc7hHa.jpg",
+      "https://www.hydrelleskincare.com/assets/8-3jTqpk2s.jpg"
     ],
     "videos": [
-      "https://hydrelleskincare.com/assets/bebechiol_ampoule_video-DmIuois8.mp4"
+      "https://www.hydrelleskincare.com/assets/bebechiol_ampoule_video-DmIuois8.mp4"
     ],
     "details": {
       "product_presentation": "MONJEUNE Bebechiol Ampoule 30ml. Bakuchiol, known as plant-based retinol, is a gentle botanical extract from the seeds of Psoralea corylifolia. Helps with anti-inflammation, acne, and brightening.",
       "features": [
-        "Low-irritation retinol alternative for slow aging.",
-        "Bakuchiol stimulates collagen production to maintain elasticity and reduce pigmentation.",
-        "Bakuchiol - the secret to focused wrinkle care.",
-        "Delivers actives deep into the skin for true elasticity care.",
-        "Low-molecular collagen penetrates deeply and boosts collagen synthesis."
+        "Anti-Aging Face Treatment",
+        "Skin Regeneration",
+        "Hyaluronic Acid",
+        "Hydrating",
+        "Brightening",
+        "Youthful Glow",
+        "Slow Aging Formula",
+        "Korean Skincare",
+        "For All Skin Types"
       ],
       "how_to_use": "Apply a few drops to clean skin after toning. Gently pat for absorption.",
-      "ingredients": "Bakuchiol, Hyaluronic Acid, Low-molecular Collagen, Botanical Extracts."
+      "ingredients": "Bakuchiol, Hyaluronic Acid, Low-molecular Collagen, Botanical Extracts.",
+      "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-kRczezZk.png"
     },
     "displayPrice": "AED 99.00 / $26.95",
     "numericPrice": 99,
     "currency": "AED",
     "url": "https://hydrelleskincare.com/product/5",
-    "image_url": "https://hydrelleskincare.com/assets/1-2fFCd1oU.jpg"
+    "image_url": "https://www.hydrelleskincare.com/assets/1-2fFCd1oU.jpg"
   },
   {
     "id": "7",
@@ -37,11 +48,20 @@
     "category": "Oil",
     "price": "AED 144.60 / $39.37",
     "amazon_link": "https://amzn.eu/d/00uDDO6y",
-    "description": "Premium organic jojoba oil for deep hydration and skin barrier repair.",
+    "description": "100% pure organic jojoba oil for deep nourishment of skin and hair.",
     "images": [
-      "https://hydrelleskincare.com/assets/atlanta1-Dfw-TYWB.jpg"
+      "https://www.hydrelleskincare.com/assets/atlanta1-Dfw-TYWB.jpg",
+      "https://www.hydrelleskincare.com/assets/atlanta2-CHd3STbD.jpg",
+      "https://www.hydrelleskincare.com/assets/atlanta3-B5Rutorr.jpg",
+      "https://www.hydrelleskincare.com/assets/atlanta4-DwCRY4lH.jpg",
+      "https://www.hydrelleskincare.com/assets/atlanta5-OZsakOfJ.jpg",
+      "https://www.hydrelleskincare.com/assets/atlanta6-ByF-uOZ9.jpg",
+      "https://www.hydrelleskincare.com/assets/atlanta7-D5J1WDqg.jpg",
+      "https://www.hydrelleskincare.com/assets/atlanta8-DyJGoRNL.jpg"
     ],
-    "videos": [],
+    "videos": [
+      "https://www.hydrelleskincare.com/assets/jojoba_oil_video-0kQevvUN.mp4"
+    ],
     "details": {
       "benefits": [
         "Deep hydration",
@@ -49,26 +69,43 @@
         "Rich in Vitamin E"
       ],
       "how_to_use": "Massage 2-3 drops onto face and neck as the last step of your routine.",
-      "ingredients": "100% Organic Jojoba Oil."
+      "ingredients": "100% Organic Jojoba Oil.",
+      "features": [
+        "100% Pure Organic",
+        "Jojoba Oil",
+        "Deep Nourishment",
+        "For Skin and Hair"
+      ],
+      "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-Cbe5RR57.png"
     },
     "displayPrice": "AED 144.60 / $39.37",
     "numericPrice": 144.6,
     "currency": "AED",
     "url": "https://hydrelleskincare.com/product/7",
-    "image_url": "https://hydrelleskincare.com/assets/atlanta1-Dfw-TYWB.jpg"
+    "image_url": "https://www.hydrelleskincare.com/assets/atlanta1-Dfw-TYWB.jpg"
   },
   {
     "id": "8",
-    "name": "Pore 55% Skin Texure Pad",
+    "name": "Pore 55% Skin Texture Pad",
     "category": "Exfoliator",
     "price": "AED 99.00 / $26.25",
     "amazon_link": "https://amzn.eu/d/0imcjuwN",
-    "description": "Exfoliating pads designed to refine skin texture and minimize pores.",
+    "description": "Aha Bha Lha, Retinol & Rice Extract For Enlarged Pores, Textured Skin, Sebum Control, Exfoliating Toner Pads Glass Non-Irritating, Korean Skincare(60Ct)",
     "images": [
-      "https://hydrelleskincare.com/assets/pore1-CCAdeprU.jpg"
+      "https://www.hydrelleskincare.com/assets/pore1-CCAdeprU.jpg",
+      "https://www.hydrelleskincare.com/assets/pore2-Bpfn1N9r.jpg",
+      "https://www.hydrelleskincare.com/assets/pore3-BRPNReDa.jpg",
+      "https://www.hydrelleskincare.com/assets/pore4-BP6UJT18.jpg",
+      "https://www.hydrelleskincare.com/assets/pore5-B9oQMbfM.jpg",
+      "https://www.hydrelleskincare.com/assets/pore6-Ds9h6O3k.jpg",
+      "https://www.hydrelleskincare.com/assets/PORE%20SKIN%20TEXTURE%20PAD%20(1)-CwNp368t.jpg",
+      "https://www.hydrelleskincare.com/assets/PORE%20SKIN%20TEXTURE%20PAD%20(2)-DS_c7aRV.jpg",
+      "https://www.hydrelleskincare.com/assets/PORE%20SKIN%20TEXTURE%20PAD%20(3)-dqABuz2r.jpg",
+      "https://www.hydrelleskincare.com/assets/PORE%20SKIN%20TEXTURE%20PAD%20(4)-DKfReNuB.jpg",
+      "https://www.hydrelleskincare.com/assets/PORE%20SKIN%20TEXTURE%20PAD%20(5)-Dp1SwliK.jpg"
     ],
     "videos": [
-      "https://hydrelleskincare.com/assets/pore_skin_pad_video-C6l93QWY.mp4"
+      "https://www.hydrelleskincare.com/assets/pore_skin_pad_video-C6l93QWY.mp4"
     ],
     "details": {
       "benefits": [
@@ -77,13 +114,27 @@
         "Smoothing"
       ],
       "how_to_use": "Wipe gently across the face after cleansing, avoiding the eye area.",
-      "ingredients": "AHA, BHA, PHA, Botanical Extracts."
+      "ingredients": "AHA, BHA, PHA, Botanical Extracts.",
+      "features": [
+        "AHA BHA LHA Formula",
+        "Retinol",
+        "Rice Extract",
+        "Enlarged Pores Treatment",
+        "Textured Skin Improvement",
+        "Sebum Control",
+        "Exfoliating Toner Pads",
+        "Glass Container",
+        "Non-Irritating",
+        "Korean Skincare",
+        "60 Count"
+      ],
+      "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-DD3BW7oE.png"
     },
     "displayPrice": "AED 99.00 / $26.25",
     "numericPrice": 99,
     "currency": "AED",
     "url": "https://hydrelleskincare.com/product/8",
-    "image_url": "https://hydrelleskincare.com/assets/pore1-CCAdeprU.jpg"
+    "image_url": "https://www.hydrelleskincare.com/assets/pore1-CCAdeprU.jpg"
   },
   {
     "id": "9",
@@ -91,12 +142,21 @@
     "category": "Serum",
     "price": "AED 128.90 / $35.09",
     "amazon_link": "https://amzn.eu/d/09AlJkYi",
-    "description": "Brightening serum enriched with rice extract for a radiant complexion.",
+    "description": "Anti-aging, Skin Texture Improvement Pore Minimizing, Texture Refining, Korean Glass Skin Serum with Retinol & Collagen T3, 3.04 fl oz (90ml)",
     "images": [
-      "https://hydrelleskincare.com/assets/skin_texture_serum_new-DFpa-Ax-.jpg"
+      "https://www.hydrelleskincare.com/assets/skin_texture_serum_new-DFpa-Ax-.jpg",
+      "https://www.hydrelleskincare.com/assets/skin_texture_serum_2-Bpgs94uE.jpg",
+      "https://www.hydrelleskincare.com/assets/skin_texture_serum_3-Cc9q7gxa.jpg",
+      "https://www.hydrelleskincare.com/assets/Skin%20Texture%20Solution-Bn6nuXaR.jpg",
+      "https://www.hydrelleskincare.com/assets/Retinol%20Effect-DwoBj03V.jpg",
+      "https://www.hydrelleskincare.com/assets/Clinically%20Proven%20Pore%20Depth%20_%20Area%20Reduction-DGsPJl9w.jpg",
+      "https://www.hydrelleskincare.com/assets/Visible%20Pore%20Refinement%20in%204%20Weeks-BQwl-JY0.jpg",
+      "https://www.hydrelleskincare.com/assets/4%20Key%20Ingredients-C6Kx2KEK.jpg",
+      "https://www.hydrelleskincare.com/assets/Layer%20More_%20Improve%20Faster-rY8kQwQE.jpg",
+      "https://www.hydrelleskincare.com/assets/How%20to%20Use-DdgcUPji.jpg"
     ],
     "videos": [
-      "https://hydrelleskincare.com/assets/skin_texture_serum_video-BGAS4-dB.mp4"
+      "https://www.hydrelleskincare.com/assets/skin_texture_serum_video-BGAS4-dB.mp4"
     ],
     "details": {
       "benefits": [
@@ -105,13 +165,25 @@
         "Evening skin tone"
       ],
       "how_to_use": "Apply to face after cleansing and toning.",
-      "ingredients": "Rice Extract (27%), Niacinamide."
+      "ingredients": "Rice Extract (27%), Niacinamide.",
+      "features": [
+        "Anti-aging",
+        "Skin Texture Improvement",
+        "Pore Minimizing",
+        "Texture Refining",
+        "Korean Glass Skin",
+        "Retinol",
+        "Collagen T3",
+        "27% Rice Extract",
+        "3.04 fl oz (90ml)"
+      ],
+      "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-BMokxtOR.png"
     },
     "displayPrice": "AED 128.90 / $35.09",
     "numericPrice": 128.9,
     "currency": "AED",
     "url": "https://hydrelleskincare.com/product/9",
-    "image_url": "https://hydrelleskincare.com/assets/skin_texture_serum_new-DFpa-Ax-.jpg"
+    "image_url": "https://www.hydrelleskincare.com/assets/skin_texture_serum_new-DFpa-Ax-.jpg"
   },
   {
     "id": "11",
@@ -119,11 +191,21 @@
     "category": "Serum",
     "price": "AED 189.65 / $51.63",
     "amazon_link": "https://amzn.eu/d/0gPx7Gj5",
-    "description": "Soothing ampoule for sensitive and irritated skin.",
+    "description": "Deep Hydration & Skin Barrier Repair Serum with Centella Cica, Hyaluronic Acid For Deep Nourishment & Hydration, For Men & Women",
     "images": [
-      "https://hydrelleskincare.com/assets/greenrepair1-CjpOYipA.jpg"
+      "https://www.hydrelleskincare.com/assets/greenrepair1-CjpOYipA.jpg",
+      "https://www.hydrelleskincare.com/assets/greenrepair2-BPNhfPOv.jpg",
+      "https://www.hydrelleskincare.com/assets/greenrepair3-CsMWcwNl.jpg",
+      "https://www.hydrelleskincare.com/assets/greenrepair4-JcD2siDH.jpg",
+      "https://www.hydrelleskincare.com/assets/greenrepair5-CW-PPYzA.jpg",
+      "https://www.hydrelleskincare.com/assets/greenrepair6-Cj_0VAIY.jpg",
+      "https://www.hydrelleskincare.com/assets/greenrepair7-CXaSjQS4.jpg",
+      "https://www.hydrelleskincare.com/assets/greenrepair8-CmE4N8SR.jpg",
+      "https://www.hydrelleskincare.com/assets/greenrepair9-5c9_UYCw.jpg"
     ],
-    "videos": [],
+    "videos": [
+      "https://www.hydrelleskincare.com/assets/green_repair_ampoule_video-B-Oq5b58.mp4"
+    ],
     "details": {
       "benefits": [
         "Calming",
@@ -131,13 +213,22 @@
         "Barrier support"
       ],
       "how_to_use": "Apply to irritated areas or all over the face for soothing effects.",
-      "ingredients": "Centella Asiatica, Green Tea Extract."
+      "ingredients": "Centella Asiatica, Green Tea Extract.",
+      "features": [
+        "Deep Hydration",
+        "Skin Barrier Repair",
+        "Centella Cica",
+        "Hyaluronic Acid",
+        "Deep Nourishment",
+        "For Men & Women"
+      ],
+      "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-BJro_PD_.png"
     },
     "displayPrice": "AED 189.65 / $51.63",
     "numericPrice": 189.65,
     "currency": "AED",
     "url": "https://hydrelleskincare.com/product/11",
-    "image_url": "https://hydrelleskincare.com/assets/greenrepair1-CjpOYipA.jpg"
+    "image_url": "https://www.hydrelleskincare.com/assets/greenrepair1-CjpOYipA.jpg"
   },
   {
     "id": "13",
@@ -145,9 +236,14 @@
     "category": "Hair Care",
     "price": "AED 145.60 / $39.64",
     "amazon_link": "https://amzn.eu/d/02Bkunr6",
-    "description": "Scalp treatment spray to control hair loss and promote healthy growth.",
+    "description": "Deep Rooted Scalp Care, Root Volume Boost, Non-Sticky Vegan Scalp Serum Regen Formula Korean Hair Growth Spray for Men & Women 150ml",
     "images": [
-      "https://hydrelleskincare.com/assets/hairloss1-DZO_XRk_.jpg"
+      "https://www.hydrelleskincare.com/assets/hairloss1-DZO_XRk_.jpg",
+      "https://www.hydrelleskincare.com/assets/hairloss2-DOttaZXH.jpg",
+      "https://www.hydrelleskincare.com/assets/hairloss3-DDY5buBe.jpg",
+      "https://www.hydrelleskincare.com/assets/hairloss4-6S56ZWEs.jpg",
+      "https://www.hydrelleskincare.com/assets/hairloss5-rBMYJIeA.jpg",
+      "https://www.hydrelleskincare.com/assets/hairloss6-B9wdtaEe.jpg"
     ],
     "videos": [],
     "details": {
@@ -157,13 +253,24 @@
         "Hair loss prevention"
       ],
       "how_to_use": "Spray onto scalp and massage gently. No need to rinse.",
-      "ingredients": "Biotin, Menthol, Scalp Care Complex."
+      "ingredients": "Biotin, Menthol, Scalp Care Complex.",
+      "features": [
+        "Deep Rooted Scalp Care",
+        "Root Volume Boost",
+        "Non-Sticky",
+        "Vegan",
+        "Scalp Serum Regen Formula",
+        "Korean Hair Growth Spray",
+        "For Men & Women",
+        "150ml"
+      ],
+      "presentation_image": null
     },
     "displayPrice": "AED 145.60 / $39.64",
     "numericPrice": 145.6,
     "currency": "AED",
     "url": "https://hydrelleskincare.com/product/13",
-    "image_url": "https://hydrelleskincare.com/assets/hairloss1-DZO_XRk_.jpg"
+    "image_url": "https://www.hydrelleskincare.com/assets/hairloss1-DZO_XRk_.jpg"
   },
   {
     "id": "14",
@@ -171,9 +278,13 @@
     "category": "Spray",
     "price": "AED 89.00 / $24.23",
     "amazon_link": "https://amzn.eu/d/0bBdVhV8",
-    "description": "Intensive brightening serum for pigmentation and dark spots.",
+    "description": "3X Vita Aurora Brightening and Pigmentation Care Face Serum Dark Spot, 10% Niacinamide with Madewhite & Rosehip Oil,Glow Deep Serum, Skin Tone Corrector, Daily Korean Skincare for Men and Women 30ml",
     "images": [
-      "https://hydrelleskincare.com/assets/3x1-GlUmBov7.jpg"
+      "https://www.hydrelleskincare.com/assets/3x1-GlUmBov7.jpg",
+      "https://www.hydrelleskincare.com/assets/3x2-BM741A-O.jpg",
+      "https://www.hydrelleskincare.com/assets/3x3-DAECFb94.jpg",
+      "https://www.hydrelleskincare.com/assets/3x4-NbB47qwO.jpg",
+      "https://www.hydrelleskincare.com/assets/3x5-D4RTGF4s.jpg"
     ],
     "videos": [],
     "details": {
@@ -183,13 +294,27 @@
         "Vitamin boost"
       ],
       "how_to_use": "Apply to areas with dark spots or all over for a brightening effect.",
-      "ingredients": "Vitamin C, Vitamin E, Niacinamide."
+      "ingredients": "Vitamin C, Vitamin E, Niacinamide.",
+      "features": [
+        "Brightening",
+        "Pigmentation Care",
+        "Dark Spot Treatment",
+        "10% Niacinamide",
+        "Madewhite",
+        "Rosehip Oil",
+        "Glow Deep Serum",
+        "Skin Tone Corrector",
+        "Daily Korean Skincare",
+        "For Men and Women",
+        "30ml"
+      ],
+      "presentation_image": null
     },
     "displayPrice": "AED 89.00 / $24.23",
     "numericPrice": 89,
     "currency": "AED",
     "url": "https://hydrelleskincare.com/product/14",
-    "image_url": "https://hydrelleskincare.com/assets/3x1-GlUmBov7.jpg"
+    "image_url": "https://www.hydrelleskincare.com/assets/3x1-GlUmBov7.jpg"
   },
   {
     "id": "15",
@@ -197,9 +322,17 @@
     "category": "Sunscreen",
     "price": "AED 125.00 / $34.03",
     "amazon_link": "https://amzn.eu/d/09L5Iry6",
-    "description": "High-protection daily sunscreen with a lightweight, non-greasy finish.",
+    "description": "Resilience, 50ml | Melanin Control Formula Korean Sunscreen Sunblock for Face for Men and Women Skincare",
     "images": [
-      "https://hydrelleskincare.com/assets/phd1-C3SOucrq.jpg"
+      "https://www.hydrelleskincare.com/assets/phd1-C3SOucrq.jpg",
+      "https://www.hydrelleskincare.com/assets/phd2-CSDGHfpZ.jpg",
+      "https://www.hydrelleskincare.com/assets/phd3-De3HqFNK.jpg",
+      "https://www.hydrelleskincare.com/assets/phd4-CxzH80Lv.jpg",
+      "https://www.hydrelleskincare.com/assets/phd5-ChezpP1F.jpg",
+      "https://www.hydrelleskincare.com/assets/phd6-CqxiMYip.jpg",
+      "https://www.hydrelleskincare.com/assets/phd8-DKPPgBZG.jpg",
+      "https://www.hydrelleskincare.com/assets/phd9-VXhIt98e.jpg",
+      "https://www.hydrelleskincare.com/assets/phd10-DIMSBF6t.jpg"
     ],
     "videos": [],
     "details": {
@@ -209,12 +342,21 @@
         "Moisturizing"
       ],
       "how_to_use": "Apply as the last step of your morning routine, 15 minutes before sun exposure.",
-      "ingredients": "Chemical and Physical UV Filters, Hyaluronic Acid."
+      "ingredients": "Chemical and Physical UV Filters, Hyaluronic Acid.",
+      "features": [
+        "SPF 50+/PA++++",
+        "Melanin Control Formula",
+        "Korean Sunscreen",
+        "Sunblock for Face",
+        "For Men and Women",
+        "50ml"
+      ],
+      "presentation_image": null
     },
     "displayPrice": "AED 125.00 / $34.03",
     "numericPrice": 125,
     "currency": "AED",
     "url": "https://hydrelleskincare.com/product/15",
-    "image_url": "https://hydrelleskincare.com/assets/phd1-C3SOucrq.jpg"
+    "image_url": "https://www.hydrelleskincare.com/assets/phd1-C3SOucrq.jpg"
   }
 ]

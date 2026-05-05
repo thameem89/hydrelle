@@ -18,6 +18,7 @@ export interface Product {
     benefits?: string[];
     how_to_use?: string;
     ingredients?: string;
+    presentation_image?: string | null;
   };
 }
 
