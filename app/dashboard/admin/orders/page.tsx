@@ -12,7 +12,8 @@ import {
   Eye,
   Clock,
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  Edit2
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -29,6 +30,8 @@ const OrderManagement = () => {
   const [orders, setOrders] = useState(initialOrders);
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [editingOrder, setEditingOrder] = useState<any>(null);
 
   const statusColors = {
     'Pending': 'bg-orange-50 text-orange-600 border-orange-100',
@@ -41,6 +44,14 @@ const OrderManagement = () => {
     setOrders(orders.map(order => 
       order.id === id ? { ...order, status: newStatus } : order
     ));
+  };
+
+  const handleEditSave = (e: React.FormEvent) => {
+    e.preventDefault();
+    setOrders(orders.map(order => 
+      order.id === editingOrder.id ? editingOrder : order
+    ));
+    setIsEditModalOpen(false);
   };
 
   const filteredOrders = orders.filter(order => {
@@ -57,6 +68,120 @@ const OrderManagement = () => {
         <h1 className="text-4xl md:text-5xl font-serif text-botanical-dark">Order Tracking.</h1>
         <p className="text-earth-deep font-light">Approve, track, and manage botanical shipments.</p>
       </div>
+
+      {/* Edit Modal */}
+      <AnimatePresence>
+        {isEditModalOpen && editingOrder && (
+          <div className="fixed inset-0 z-[110] flex items-center justify-center p-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsEditModalOpen(false)}
+              className="absolute inset-0 bg-botanical-dark/40 backdrop-blur-sm"
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative bg-cream w-full max-w-lg p-8 rounded-[2.5rem] shadow-2xl border border-earth-soft/10 overflow-hidden"
+            >
+              <div className="space-y-6">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-2xl font-serif text-botanical-dark">Manual Adjustment</h2>
+                  <button onClick={() => setIsEditModalOpen(false)} className="text-earth-soft">
+                    <XCircle size={24} />
+                  </button>
+                </div>
+
+                <form onSubmit={handleEditSave} className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft">Order ID</label>
+                      <input 
+                        disabled
+                        value={editingOrder.id}
+                        className="w-full bg-white/50 border border-earth-soft/10 p-3 rounded-xl text-sm text-earth-deep opacity-60"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft">Status</label>
+                      <select 
+                        value={editingOrder.status}
+                        onChange={(e) => setEditingOrder({...editingOrder, status: e.target.value})}
+                        className="w-full bg-white border border-earth-soft/10 p-3 rounded-xl text-sm text-earth-deep focus:outline-none focus:ring-1 focus:ring-botanical-dark"
+                      >
+                        {['Pending', 'Approved', 'Shipped', 'Cancelled'].map(s => (
+                          <option key={s} value={s}>{s}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft">Customer Name</label>
+                    <input 
+                      required
+                      value={editingOrder.customer}
+                      onChange={(e) => setEditingOrder({...editingOrder, customer: e.target.value})}
+                      className="w-full bg-white border border-earth-soft/10 p-3 rounded-xl text-sm text-earth-deep focus:outline-none focus:ring-1 focus:ring-botanical-dark"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft">Email Address</label>
+                    <input 
+                      type="email"
+                      required
+                      value={editingOrder.email}
+                      onChange={(e) => setEditingOrder({...editingOrder, email: e.target.value})}
+                      className="w-full bg-white border border-earth-soft/10 p-3 rounded-xl text-sm text-earth-deep focus:outline-none focus:ring-1 focus:ring-botanical-dark"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft">Order Total</label>
+                      <input 
+                        required
+                        value={editingOrder.total}
+                        onChange={(e) => setEditingOrder({...editingOrder, total: e.target.value})}
+                        className="w-full bg-white border border-earth-soft/10 p-3 rounded-xl text-sm text-earth-deep focus:outline-none focus:ring-1 focus:ring-botanical-dark"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft">Items Count</label>
+                      <input 
+                        type="number"
+                        required
+                        value={editingOrder.items}
+                        onChange={(e) => setEditingOrder({...editingOrder, items: parseInt(e.target.value)})}
+                        className="w-full bg-white border border-earth-soft/10 p-3 rounded-xl text-sm text-earth-deep focus:outline-none focus:ring-1 focus:ring-botanical-dark"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="pt-6 flex gap-4">
+                    <button 
+                      type="button"
+                      onClick={() => setIsEditModalOpen(false)}
+                      className="flex-1 py-4 border border-earth-soft/20 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-white transition-all"
+                    >
+                      Cancel
+                    </button>
+                    <button 
+                      type="submit"
+                      className="flex-1 py-4 bg-botanical-dark text-cream rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-earth-deep transition-all shadow-lg"
+                    >
+                      Save Changes
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Stats Summary */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -168,8 +293,15 @@ const OrderManagement = () => {
                             <Truck size={18} />
                           </button>
                         )}
-                        <button className="p-2 text-earth-soft hover:bg-cream rounded-lg transition-colors">
-                          <Eye size={18} />
+                        <button 
+                          onClick={() => {
+                            setEditingOrder(order);
+                            setIsEditModalOpen(true);
+                          }}
+                          className="p-2 text-earth-soft hover:bg-cream rounded-lg transition-colors"
+                          title="Edit Order"
+                        >
+                          <Edit2 size={18} />
                         </button>
                         <button className="p-2 text-earth-soft hover:bg-cream rounded-lg transition-colors">
                           <MoreVertical size={18} />
