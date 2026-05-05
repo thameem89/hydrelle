@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-botanical-dark: #2D4F1E;
+  --color-botanical-light: #E6F0E6;
+  --color-cream: #FDFBF7;
+  --color-earth-deep: #8B7E66;
+  --color-earth-soft: #C5BAAF;
+  --color-accent: #D4AF37; /* Gold touch */
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-outfit);
+}
+
+:root {
+  --background: #FDFBF7; /* Cream */
+  --foreground: #1A1A1A;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FDFBF7;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5BAAF;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B7E66;
+}
+
+.glass {
+  background: rgba(253, 251, 247, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal-inner {
+  display: block;
+  animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@keyframes reveal {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0%); }
+}
