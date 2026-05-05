@@ -50,7 +50,11 @@ const HeroSection = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-botanical-dark/20 to-cream/90 z-10" />
           
           {slides[current].video ? (
-            <video 
+            <motion.video 
+              key={`video-${current}`}
+              initial={{ scale: 1.1, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 6, ease: "linear" }}
               autoPlay 
               muted 
               loop 
@@ -58,15 +62,23 @@ const HeroSection = () => {
               className="w-full h-full object-cover"
             >
               <source src={slides[current].video} type="video/mp4" />
-            </video>
+            </motion.video>
           ) : (
-            <Image 
-              src={slides[current].image!}
-              alt="Hero Background"
-              fill
-              className="object-cover"
-              priority
-            />
+            <motion.div
+              key={`image-${current}`}
+              initial={{ scale: 1.1, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 6, ease: "linear" }}
+              className="relative w-full h-full"
+            >
+              <Image 
+                src={slides[current].image!}
+                alt="Hero Background"
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
           )}
         </motion.div>
       </AnimatePresence>
