@@ -5,10 +5,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import Image from 'next/image';
-import { formatPrice } from '@/lib/utils';
+import { cn, formatPrice } from '@/lib/utils';
 
 const MiniCart = () => {
   const { isCartOpen, setIsCartOpen, items, updateQuantity, removeItem, totalPrice } = useCart();
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const handleCheckout = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items }),
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('Checkout failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      alert('Something went wrong. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -93,8 +118,23 @@ const MiniCart = () => {
                 <p className="text-[10px] text-earth-deep uppercase tracking-widest text-center">
                   Shipping and taxes calculated at checkout
                 </p>
-                <button className="w-full bg-botanical-dark text-cream py-4 uppercase tracking-[0.2em] text-xs font-medium hover:bg-earth-deep transition-all">
-                  Proceed to Checkout
+                <button 
+                  onClick={handleCheckout}
+                  disabled={isLoading}
+                  className={cn(
+                    "w-full bg-botanical-dark text-cream py-4 uppercase tracking-[0.2em] text-xs font-medium hover:bg-earth-deep transition-all relative flex items-center justify-center",
+                    isLoading && "opacity-80 cursor-not-allowed"
+                  )}
+                >
+                  {isLoading ? (
+                    <span className="flex items-center gap-2">
+                      <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Connecting...
+                    </span>
+                  ) : "Proceed to Checkout"}
                 </button>
               </div>
             )}
