@@ -11,3 +11,11 @@ export function formatPrice(price: number) {
     currency: 'AED',
   }).format(price);
 }
+
+export function formatUSD(aedPrice: number) {
+  const usdPrice = aedPrice * 0.27;
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(usdPrice);
+}

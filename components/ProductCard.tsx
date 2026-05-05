@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { Product } from '@/lib/types';
 import { ShoppingCart, ExternalLink } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import { formatPrice, formatUSD } from '@/lib/utils';
 
 interface ProductCardProps {
   product: Product;
@@ -66,8 +67,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {product.name}
           </h3>
         </Link>
-        <p className="text-xs font-serif text-earth-deep">
-          {product.displayPrice.split('/')[0]}
+        <p className="text-xs font-serif text-botanical-dark">
+          {formatPrice(product.numericPrice)} 
+          <span className="text-[10px] text-earth-soft font-sans ml-2 opacity-60">
+            ({formatUSD(product.numericPrice)})
+          </span>
         </p>
       </div>
     </motion.div>

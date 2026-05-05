@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import Image from 'next/image';
-import { cn, formatPrice } from '@/lib/utils';
+import { cn, formatPrice, formatUSD } from '@/lib/utils';
 
 const MiniCart = () => {
   const { isCartOpen, setIsCartOpen, items, updateQuantity, removeItem, totalPrice } = useCart();
@@ -101,7 +101,10 @@ const MiniCart = () => {
                             <Plus size={12} />
                           </button>
                         </div>
-                        <p className="text-sm font-serif">{formatPrice(item.numericPrice * item.quantity)}</p>
+                        <div className="text-right">
+                          <p className="text-sm font-serif">{formatPrice(item.numericPrice * item.quantity)}</p>
+                          <p className="text-[10px] text-earth-soft opacity-60">({formatUSD(item.numericPrice * item.quantity)})</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -111,9 +114,12 @@ const MiniCart = () => {
 
             {items.length > 0 && (
               <div className="p-6 border-t border-earth-soft/20 bg-botanical-light/5 space-y-4">
-                <div className="flex justify-between items-center text-lg font-serif">
-                  <span>Subtotal</span>
-                  <span>{formatPrice(totalPrice)}</span>
+                <div className="flex justify-between items-end">
+                  <span className="text-lg font-serif">Subtotal</span>
+                  <div className="text-right">
+                    <p className="text-lg font-serif">{formatPrice(totalPrice)}</p>
+                    <p className="text-[10px] text-earth-soft opacity-60">Approx. {formatUSD(totalPrice)}</p>
+                  </div>
                 </div>
                 <p className="text-[10px] text-earth-deep uppercase tracking-widest text-center">
                   Shipping and taxes calculated at checkout
