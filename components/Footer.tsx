@@ -36,8 +36,8 @@ const Footer = () => {
           <div className="flex flex-col gap-4">
             <span className="text-earth-soft mb-2 opacity-50">Discovery</span>
             <Link href="/story" className="hover:text-accent transition-colors">Our Story</Link>
-            <Link href="/dashboard" className="hover:text-accent transition-colors">My Routine</Link>
-            <Link href="/dashboard/admin" className="hover:text-accent transition-colors">Admin Portal</Link>
+            <Link href="/shipping-policy" className="hover:text-accent transition-colors">Shipping Policy</Link>
+            <Link href="/return-policy" className="hover:text-accent transition-colors">Return Policy</Link>
           </div>
           <div className="flex flex-col gap-6 col-span-2 sm:col-span-1">
             <span className="text-earth-soft opacity-50">Stay Updated</span>
@@ -62,8 +62,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/10 text-[9px] uppercase tracking-[0.2em] text-earth-soft/40 flex flex-col md:flex-row justify-between items-center gap-4">
         <p>© 2024 Hydrelle Skincare. Crafted for clinical perfection.</p>
         <div className="flex gap-8">
-          <Link href="#" className="hover:text-cream transition-colors">Privacy Policy</Link>
-          <Link href="#" className="hover:text-cream transition-colors">Terms of Service</Link>
+          <Link href="/privacy-policy" className="hover:text-cream transition-colors">Privacy Policy</Link>
+          <Link href="/terms-and-conditions" className="hover:text-cream transition-colors">Terms of Service</Link>
         </div>
       </div>
     </footer>
