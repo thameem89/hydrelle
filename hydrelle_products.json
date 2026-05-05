@@ -1,67 +1,220 @@
 [
   {
+    "id": "5",
     "name": "Ampoule Face Serum 30ml",
-    "url": "https://hydrelleskincare.com/product/5",
+    "category": "Serum",
     "price": "AED 99.00 / $26.95",
-    "category": "Serum",
-    "image_url": "https://hydrelleskincare.com/assets/1-2fFCd1oU.jpg",
-    "description": "Anti-Aging Face Treatment, Skin Regeneration Serum Hyaluronic Acid, Hydrating, Brightening & Youthful Glow, Slow Aging Formula Korean Skincare for All Skin Types",
-    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
+    "amazon_link": "https://www.amazon.ae/bakuchiol/s?k=bakuchiol",
+    "description": "Anti-Aging Face Treatment, Skin Regeneration Serum Hyaluronic Acid, Hydrating, Brightening & Youthful Glow, Slow Aging Formula Korean Skincare for All Skin Types.",
+    "images": [
+      "https://hydrelleskincare.com/assets/1-2fFCd1oU.jpg",
+      "https://hydrelleskincare.com/assets/1-2fFCd1oU.jpg"
+    ],
+    "videos": [
+      "https://hydrelleskincare.com/assets/bebechiol_ampoule_video-DmIuois8.mp4"
+    ],
+    "details": {
+      "product_presentation": "MONJEUNE Bebechiol Ampoule 30ml. Bakuchiol, known as plant-based retinol, is a gentle botanical extract from the seeds of Psoralea corylifolia. Helps with anti-inflammation, acne, and brightening.",
+      "features": [
+        "Low-irritation retinol alternative for slow aging.",
+        "Bakuchiol stimulates collagen production to maintain elasticity and reduce pigmentation.",
+        "Bakuchiol - the secret to focused wrinkle care.",
+        "Delivers actives deep into the skin for true elasticity care.",
+        "Low-molecular collagen penetrates deeply and boosts collagen synthesis."
+      ],
+      "how_to_use": "Apply a few drops to clean skin after toning. Gently pat for absorption.",
+      "ingredients": "Bakuchiol, Hyaluronic Acid, Low-molecular Collagen, Botanical Extracts."
+    },
+    "displayPrice": "AED 99.00 / $26.95",
+    "numericPrice": 99,
+    "currency": "AED",
+    "url": "https://hydrelleskincare.com/product/5",
+    "image_url": "https://hydrelleskincare.com/assets/1-2fFCd1oU.jpg"
   },
   {
+    "id": "7",
     "name": "ANTALA Jojoba Premium Organic Oil Face Serum",
-    "url": "https://hydrelleskincare.com/product/7",
-    "price": "AED 144.60 / $39.37",
     "category": "Oil",
-    "image_url": "https://hydrelleskincare.com/assets/atlanta1-Dfw-TYWB.jpg",
-    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
+    "price": "AED 144.60 / $39.37",
+    "amazon_link": "https://www.amazon.ae/jojoba-oil-for-face/s?k=jojoba+oil+for+face",
+    "description": "Premium organic jojoba oil for deep hydration and skin barrier repair.",
+    "images": [
+      "https://hydrelleskincare.com/assets/atlanta1-Dfw-TYWB.jpg"
+    ],
+    "videos": [],
+    "details": {
+      "benefits": [
+        "Deep hydration",
+        "Non-comedogenic",
+        "Rich in Vitamin E"
+      ],
+      "how_to_use": "Massage 2-3 drops onto face and neck as the last step of your routine.",
+      "ingredients": "100% Organic Jojoba Oil."
+    },
+    "displayPrice": "AED 144.60 / $39.37",
+    "numericPrice": 144.6,
+    "currency": "AED",
+    "url": "https://hydrelleskincare.com/product/7",
+    "image_url": "https://hydrelleskincare.com/assets/atlanta1-Dfw-TYWB.jpg"
   },
   {
+    "id": "8",
     "name": "Pore 55% Skin Texure Pad",
-    "url": "https://hydrelleskincare.com/product/8",
-    "price": "AED 99.00 / $26.25",
     "category": "Exfoliator",
-    "image_url": "https://hydrelleskincare.com/assets/pore1-CCAdeprU.jpg",
-    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
+    "price": "AED 99.00 / $26.25",
+    "amazon_link": "https://www.amazon.ae/Dr-Percent-Pore-Skin-Texure-Non-Irritating/dp/B0F6TB2BBK",
+    "description": "Exfoliating pads designed to refine skin texture and minimize pores.",
+    "images": [
+      "https://hydrelleskincare.com/assets/pore1-CCAdeprU.jpg"
+    ],
+    "videos": [
+      "https://hydrelleskincare.com/assets/pore_skin_pad_video-C6l93QWY.mp4"
+    ],
+    "details": {
+      "benefits": [
+        "Pore tightening",
+        "Dead skin removal",
+        "Smoothing"
+      ],
+      "how_to_use": "Wipe gently across the face after cleansing, avoiding the eye area.",
+      "ingredients": "AHA, BHA, PHA, Botanical Extracts."
+    },
+    "displayPrice": "AED 99.00 / $26.25",
+    "numericPrice": 99,
+    "currency": "AED",
+    "url": "https://hydrelleskincare.com/product/8",
+    "image_url": "https://hydrelleskincare.com/assets/pore1-CCAdeprU.jpg"
   },
   {
+    "id": "9",
     "name": "Skin Texture 27% Rice Serum",
-    "url": "https://hydrelleskincare.com/product/9",
+    "category": "Serum",
     "price": "AED 128.90 / $35.09",
-    "category": "Serum",
-    "image_url": "https://hydrelleskincare.com/assets/skin_texture_serum_new-DFpa-Ax-.jpg",
-    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
+    "amazon_link": "https://www.amazon.com/Skin-Texture-27-Serum-Non-Irritating/dp/B0DQ3YXGJ8",
+    "description": "Brightening serum enriched with rice extract for a radiant complexion.",
+    "images": [
+      "https://hydrelleskincare.com/assets/skin_texture_serum_new-DFpa-Ax-.jpg"
+    ],
+    "videos": [
+      "https://hydrelleskincare.com/assets/skin_texture_serum_video-BGAS4-dB.mp4"
+    ],
+    "details": {
+      "benefits": [
+        "Brightening",
+        "Hydrating",
+        "Evening skin tone"
+      ],
+      "how_to_use": "Apply to face after cleansing and toning.",
+      "ingredients": "Rice Extract (27%), Niacinamide."
+    },
+    "displayPrice": "AED 128.90 / $35.09",
+    "numericPrice": 128.9,
+    "currency": "AED",
+    "url": "https://hydrelleskincare.com/product/9",
+    "image_url": "https://hydrelleskincare.com/assets/skin_texture_serum_new-DFpa-Ax-.jpg"
   },
   {
+    "id": "11",
     "name": "Green Repair Soothing Ampoule 50ml",
-    "url": "https://hydrelleskincare.com/product/11",
-    "price": "AED 189.65 / $51.63",
     "category": "Serum",
-    "image_url": "https://hydrelleskincare.com/assets/greenrepair1-CjpOYipA.jpg",
-    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
+    "price": "AED 189.65 / $51.63",
+    "amazon_link": "https://www.amazon.ae/Green-Tea-Calming-Toner-Pads/dp/B0BJKFS2K2",
+    "description": "Soothing ampoule for sensitive and irritated skin.",
+    "images": [
+      "https://hydrelleskincare.com/assets/greenrepair1-CjpOYipA.jpg"
+    ],
+    "videos": [],
+    "details": {
+      "benefits": [
+        "Calming",
+        "Redness reduction",
+        "Barrier support"
+      ],
+      "how_to_use": "Apply to irritated areas or all over the face for soothing effects.",
+      "ingredients": "Centella Asiatica, Green Tea Extract."
+    },
+    "displayPrice": "AED 189.65 / $51.63",
+    "numericPrice": 189.65,
+    "currency": "AED",
+    "url": "https://hydrelleskincare.com/product/11",
+    "image_url": "https://hydrelleskincare.com/assets/greenrepair1-CjpOYipA.jpg"
   },
   {
+    "id": "13",
     "name": "Ph.D Hair Loss Control Spray",
-    "url": "https://hydrelleskincare.com/product/13",
-    "price": "AED 145.60 / $39.64",
     "category": "Hair Care",
-    "image_url": "https://hydrelleskincare.com/assets/hairloss1-DZO_XRk_.jpg",
-    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
+    "price": "AED 145.60 / $39.64",
+    "amazon_link": "https://www.amazon.ae/Hair-Loss-Products-Beauty-Chemical-Free/s?keywords=Hair+Loss+Products&rh=n%3A11497859031%2Cp_n_g-1003334097111%3A28278180031",
+    "description": "Scalp treatment spray to control hair loss and promote healthy growth.",
+    "images": [
+      "https://hydrelleskincare.com/assets/hairloss1-DZO_XRk_.jpg"
+    ],
+    "videos": [],
+    "details": {
+      "benefits": [
+        "Scalp cooling",
+        "Root strengthening",
+        "Hair loss prevention"
+      ],
+      "how_to_use": "Spray onto scalp and massage gently. No need to rinse.",
+      "ingredients": "Biotin, Menthol, Scalp Care Complex."
+    },
+    "displayPrice": "AED 145.60 / $39.64",
+    "numericPrice": 145.6,
+    "currency": "AED",
+    "url": "https://hydrelleskincare.com/product/13",
+    "image_url": "https://hydrelleskincare.com/assets/hairloss1-DZO_XRk_.jpg"
   },
   {
+    "id": "14",
     "name": "3X Vita Aurora Brightening and Pigmentation Care Face Serum",
-    "url": "https://hydrelleskincare.com/product/14",
-    "price": "AED 89.00 / $24.23",
     "category": "Spray",
-    "image_url": "https://hydrelleskincare.com/assets/3x1-GlUmBov7.jpg",
-    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
+    "price": "AED 89.00 / $24.23",
+    "amazon_link": "https://www.amazon.ae/-/ar/Aurora-Cosmetics/s?k=Aurora+Cosmetics",
+    "description": "Intensive brightening serum for pigmentation and dark spots.",
+    "images": [
+      "https://hydrelleskincare.com/assets/3x1-GlUmBov7.jpg"
+    ],
+    "videos": [],
+    "details": {
+      "benefits": [
+        "Pigmentation care",
+        "Aurora glow",
+        "Vitamin boost"
+      ],
+      "how_to_use": "Apply to areas with dark spots or all over for a brightening effect.",
+      "ingredients": "Vitamin C, Vitamin E, Niacinamide."
+    },
+    "displayPrice": "AED 89.00 / $24.23",
+    "numericPrice": 89,
+    "currency": "AED",
+    "url": "https://hydrelleskincare.com/product/14",
+    "image_url": "https://hydrelleskincare.com/assets/3x1-GlUmBov7.jpg"
   },
   {
+    "id": "15",
     "name": "Ph.D. Daily Sunscreen Face SPF 50+/PA++++",
-    "url": "https://hydrelleskincare.com/product/15",
-    "price": "AED 125.00 / $34.03",
     "category": "Sunscreen",
-    "image_url": "https://hydrelleskincare.com/assets/phd1-C3SOucrq.jpg",
-    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
+    "price": "AED 125.00 / $34.03",
+    "amazon_link": "https://www.amazon.ae/face-sunscreen-spf-50-daily-use/s?k=face+sunscreen+spf+50+daily+use",
+    "description": "High-protection daily sunscreen with a lightweight, non-greasy finish.",
+    "images": [
+      "https://hydrelleskincare.com/assets/phd1-C3SOucrq.jpg"
+    ],
+    "videos": [],
+    "details": {
+      "benefits": [
+        "SPF 50+ protection",
+        "No white cast",
+        "Moisturizing"
+      ],
+      "how_to_use": "Apply as the last step of your morning routine, 15 minutes before sun exposure.",
+      "ingredients": "Chemical and Physical UV Filters, Hyaluronic Acid."
+    },
+    "displayPrice": "AED 125.00 / $34.03",
+    "numericPrice": 125,
+    "currency": "AED",
+    "url": "https://hydrelleskincare.com/product/15",
+    "image_url": "https://hydrelleskincare.com/assets/phd1-C3SOucrq.jpg"
   }
 ]

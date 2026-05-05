@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ShoppingCart, ExternalLink, ChevronLeft, Shield, Sparkles, Leaf, CheckCircle2 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import { cn, formatUSD } from '@/lib/utils';
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -29,6 +30,14 @@ const ProductPage = () => {
     );
   }
 
+  const [activeMedia, setActiveMedia] = React.useState<string>(product.image_url);
+  const [mediaType, setMediaType] = React.useState<'image' | 'video'>('image');
+
+  const allMedia = [
+    ...(product.images || [product.image_url]).map(src => ({ src, type: 'image' as const })),
+    ...(product.videos || []).map(src => ({ src, type: 'video' as const }))
+  ];
+
   return (
     <main className="min-h-screen bg-cream">
       <Navbar />
@@ -44,34 +53,65 @@ const ProductPage = () => {
         </button>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Image Gallery */}
+          {/* Media Gallery */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="space-y-6"
           >
-            <div className="relative aspect-square bg-white/50 border border-earth-soft/10 overflow-hidden flex items-center justify-center p-12">
-              <Image 
-                src={product.image_url} 
-                alt={product.name} 
-                fill 
-                className="object-contain p-8" 
-                priority
-              />
+            <div className="relative aspect-square bg-white/50 border border-earth-soft/10 overflow-hidden flex items-center justify-center">
+              {mediaType === 'image' ? (
+                <Image 
+                  src={activeMedia} 
+                  alt={product.name} 
+                  fill 
+                  className="object-contain p-12" 
+                  priority
+                />
+              ) : (
+                <video 
+                  src={activeMedia} 
+                  controls 
+                  autoPlay 
+                  muted 
+                  loop 
+                  className="w-full h-full object-contain p-4"
+                />
+              )}
             </div>
-            <div className="grid grid-cols-4 gap-4">
-               {/* Placeholders for additional gallery images */}
-               {[1, 2, 3].map((i) => (
-                 <div key={i} className="relative aspect-square bg-white/50 border border-earth-soft/10 overflow-hidden cursor-pointer hover:opacity-80 transition-opacity flex items-center justify-center p-2">
-                    <Image 
-                      src={product.image_url} 
-                      alt={`${product.name} gallery ${i}`} 
-                      fill 
-                      className="object-contain p-2"
-                    />
-                 </div>
-               ))}
-            </div>
+            
+            {allMedia.length > 1 && (
+              <div className="grid grid-cols-4 gap-4">
+                {allMedia.map((media, i) => (
+                  <div 
+                    key={i} 
+                    onClick={() => {
+                      setActiveMedia(media.src);
+                      setMediaType(media.type);
+                    }}
+                    className={cn(
+                      "relative aspect-square bg-white/50 border overflow-hidden cursor-pointer hover:opacity-80 transition-all flex items-center justify-center p-2",
+                      activeMedia === media.src ? "border-botanical-dark" : "border-earth-soft/10"
+                    )}
+                  >
+                    {media.type === 'image' ? (
+                      <Image 
+                        src={media.src} 
+                        alt={`${product.name} thumbnail ${i}`} 
+                        fill 
+                        className="object-contain p-2"
+                      />
+                    ) : (
+                      <div className="relative w-full h-full flex items-center justify-center bg-black/5">
+                        <div className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center text-botanical-dark">
+                          <motion.div whileHover={{ scale: 1.1 }} className="translate-x-0.5">▶</motion.div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </motion.div>
 
           {/* Product Details */}
@@ -97,19 +137,22 @@ const ProductPage = () => {
               </h1>
               <p className="text-2xl font-serif text-botanical-dark">
                 {product.displayPrice.split('/')[0]}
+                <span className="text-sm font-sans text-earth-soft ml-3 font-normal">
+                  ({formatUSD(product.numericPrice)})
+                </span>
               </p>
             </div>
 
             <div className="prose prose-sm text-earth-deep leading-relaxed">
-              <p>
-                {product.description || "A clinical-strength formula designed to revitalize and protect. Infused with pure botanical extracts, this treatment penetrates deep into the dermal layers to restore natural radiance and provide lasting hydration."}
+              <p className="text-base">
+                {product.description}
               </p>
             </div>
 
             <div className="space-y-4">
               <button 
                 onClick={() => addItem(product)}
-                className="w-full bg-botanical-dark text-cream py-5 uppercase tracking-[0.2em] text-xs font-semibold flex items-center justify-center gap-3 hover:bg-earth-deep transition-all transform hover:-translate-y-1 shadow-lg"
+                className="w-full bg-botanical-dark text-cream py-5 rounded-2xl uppercase tracking-[0.2em] text-xs font-semibold flex items-center justify-center gap-3 hover:bg-earth-deep transition-all transform hover:-translate-y-1 shadow-lg"
               >
                 <ShoppingCart size={18} />
                 Add to Cart
@@ -120,7 +163,7 @@ const ProductPage = () => {
                   href={product.amazon_link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full border border-[#FF9900]/20 text-[#FF9900] py-5 uppercase tracking-[0.2em] text-xs font-semibold flex items-center justify-center gap-3 hover:bg-[#FF9900] hover:text-white transition-all shadow-sm"
+                  className="w-full border border-[#FF9900]/20 text-[#FF9900] py-5 rounded-2xl uppercase tracking-[0.2em] text-xs font-semibold flex items-center justify-center gap-3 hover:bg-[#FF9900] hover:text-white transition-all shadow-sm"
                 >
                   <ExternalLink size={18} />
                   Buy from Amazon
@@ -128,20 +171,53 @@ const ProductPage = () => {
               )}
             </div>
 
-            {/* Features/Trust badges */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 border-t border-earth-soft/20">
-              <div className="flex flex-col items-center text-center space-y-2">
-                <Leaf size={20} className="text-botanical-dark" />
-                <span className="text-[10px] uppercase tracking-widest font-bold">100% Organic</span>
-              </div>
-              <div className="flex flex-col items-center text-center space-y-2">
-                <Shield size={20} className="text-botanical-dark" />
-                <span className="text-[10px] uppercase tracking-widest font-bold">Clinical Grade</span>
-              </div>
-              <div className="flex flex-col items-center text-center space-y-2">
-                <Sparkles size={20} className="text-botanical-dark" />
-                <span className="text-[10px] uppercase tracking-widest font-bold">Radiance Fix</span>
-              </div>
+            {/* Rich Details Sections */}
+            <div className="space-y-12 pt-10 border-t border-earth-soft/20">
+              {product.details?.product_presentation && (
+                <div className="space-y-3">
+                  <h4 className="text-[10px] uppercase tracking-widest font-bold text-botanical-dark">Clinical Profile</h4>
+                  <p className="text-sm text-earth-deep leading-relaxed font-light">
+                    {product.details.product_presentation}
+                  </p>
+                </div>
+              )}
+
+              {(product.details?.features || product.details?.benefits) && (
+                <div className="space-y-4">
+                  <h4 className="text-[10px] uppercase tracking-widest font-bold text-botanical-dark">Key Benefits</h4>
+                  <ul className="grid grid-cols-1 gap-3">
+                    {(product.details.features || product.details.benefits || []).map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm text-earth-deep font-light">
+                        <Sparkles size={14} className="text-botanical-dark mt-1 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {product.details?.how_to_use && (
+                <div className="bg-botanical-light/10 p-6 rounded-3xl space-y-3 border border-botanical-dark/5">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-botanical-dark/10 rounded-xl flex items-center justify-center text-botanical-dark">
+                      <Leaf size={16} />
+                    </div>
+                    <h4 className="text-[10px] uppercase tracking-widest font-bold text-botanical-dark">Ritual</h4>
+                  </div>
+                  <p className="text-sm text-earth-deep leading-relaxed italic opacity-80">
+                    "{product.details.how_to_use}"
+                  </p>
+                </div>
+              )}
+
+              {product.details?.ingredients && (
+                <div className="space-y-3">
+                  <h4 className="text-[10px] uppercase tracking-widest font-bold text-botanical-dark">Pure Ingredients</h4>
+                  <p className="text-[11px] text-earth-soft leading-relaxed uppercase tracking-wider font-medium">
+                    {product.details.ingredients}
+                  </p>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
