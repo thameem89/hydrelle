@@ -28,38 +28,40 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Mobile Menu Toggle */}
-        <button 
-          className="lg:hidden text-botanical-dark"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* Empty left side to keep logo centered if needed, or just let logo be on the left */}
-        <div className="hidden lg:flex w-1/3" />
-
-        {/* Logo */}
+        {/* Logo - Left Side */}
         <Link href="/" className="text-3xl font-serif tracking-tighter text-botanical-dark">
           HYDRELLE
         </Link>
 
-        {/* Links - Desktop Right + Cart */}
-        <div className="flex gap-8 items-center uppercase tracking-widest text-xs font-medium w-full lg:w-auto justify-end lg:justify-start">
-          <Link href="/#products" className="hidden lg:block hover:text-earth-deep transition-colors">Shop All</Link>
-          <Link href="/#products" className="hidden lg:block hover:text-earth-deep transition-colors">Best Sellers</Link>
-          <Link href="/story" className="hidden lg:block hover:text-earth-deep transition-colors">Our Story</Link>
-          <button 
-            onClick={() => setIsCartOpen(true)}
-            className="relative p-2 hover:bg-botanical-light/20 rounded-full transition-colors"
-          >
-            <ShoppingCart size={20} className="text-botanical-dark" />
-            {totalItems > 0 && (
-              <span className="absolute -top-1 -right-1 bg-botanical-dark text-cream text-[10px] w-5 h-5 flex items-center justify-center rounded-full">
-                {totalItems}
-              </span>
-            )}
-          </button>
+        {/* Links & Actions - Right Side */}
+        <div className="flex gap-8 items-center uppercase tracking-widest text-xs font-medium">
+          <div className="hidden lg:flex gap-8 items-center">
+            <Link href="/#products" className="hover:text-earth-deep transition-colors">Shop All</Link>
+            <Link href="/#products" className="hover:text-earth-deep transition-colors">Best Sellers</Link>
+            <Link href="/story" className="hover:text-earth-deep transition-colors">Our Story</Link>
+          </div>
+          
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 hover:bg-botanical-light/20 rounded-full transition-colors"
+            >
+              <ShoppingCart size={20} className="text-botanical-dark" />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-botanical-dark text-cream text-[10px] w-5 h-5 flex items-center justify-center rounded-full">
+                  {totalItems}
+                </span>
+              )}
+            </button>
+            
+            {/* Mobile Menu Toggle */}
+            <button 
+              className="lg:hidden text-botanical-dark p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
