@@ -36,11 +36,8 @@ const Navbar = () => {
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Links - Desktop */}
-        <div className="hidden lg:flex gap-8 items-center uppercase tracking-widest text-xs font-medium">
-          <Link href="/#products" className="hover:text-earth-deep transition-colors">Shop All</Link>
-          <Link href="/#products" className="hover:text-earth-deep transition-colors">Best Sellers</Link>
-        </div>
+        {/* Empty left side to keep logo centered if needed, or just let logo be on the left */}
+        <div className="hidden lg:flex w-1/3" />
 
         {/* Logo */}
         <Link href="/" className="text-3xl font-serif tracking-tighter text-botanical-dark">
@@ -48,9 +45,10 @@ const Navbar = () => {
         </Link>
 
         {/* Links - Desktop Right + Cart */}
-        <div className="flex gap-8 items-center uppercase tracking-widest text-xs font-medium">
+        <div className="flex gap-8 items-center uppercase tracking-widest text-xs font-medium w-full lg:w-auto justify-end lg:justify-start">
+          <Link href="/#products" className="hidden lg:block hover:text-earth-deep transition-colors">Shop All</Link>
+          <Link href="/#products" className="hidden lg:block hover:text-earth-deep transition-colors">Best Sellers</Link>
           <Link href="/story" className="hidden lg:block hover:text-earth-deep transition-colors">Our Story</Link>
-          <Link href="/dashboard" className="hidden lg:block hover:text-earth-deep transition-colors">Portal</Link>
           <button 
             onClick={() => setIsCartOpen(true)}
             className="relative p-2 hover:bg-botanical-light/20 rounded-full transition-colors"
