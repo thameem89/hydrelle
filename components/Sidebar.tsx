@@ -12,6 +12,7 @@ import {
   Settings, 
   BarChart3, 
   Package, 
+  PackageCheck,
   Users,
   LogOut,
   Leaf
@@ -36,6 +37,7 @@ const Sidebar = ({ role = 'customer' }: SidebarProps) => {
   const adminLinks = [
     { name: 'Analytics', href: '/dashboard/admin', icon: BarChart3 },
     { name: 'Inventory', href: '/dashboard/admin/inventory', icon: Package },
+    { name: 'Orders', href: '/dashboard/admin/orders', icon: PackageCheck },
     { name: 'Customers', href: '/dashboard/admin/customers', icon: Users },
   ];
 
