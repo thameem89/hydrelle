@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'www.hydrelleskincare.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'assets.mixkit.co',
       },
     ],
