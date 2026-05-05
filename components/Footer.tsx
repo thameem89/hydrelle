@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Globe, Mail, MessageCircle } from 'lucide-react';
+import { Instagram, Facebook, ShoppingBag } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -14,14 +14,26 @@ const Footer = () => {
             Redefining radiance through the perfect synergy of botanical wisdom and clinical precision. Pure nature, scientific care for your unique skin.
           </p>
           <div className="flex gap-4 pt-2">
-            <Link href="#" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all">
-              <Globe size={18} />
+            <Link 
+              href="https://www.instagram.com/hydrelle.skincare?utm_source=qr&igsh=MWp0azlnOGI0YzlnZQ%3D%3D" 
+              target="_blank"
+              className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all"
+            >
+              <Instagram size={18} />
             </Link>
-            <Link href="#" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all">
-              <Mail size={18} />
+            <Link 
+              href="https://www.facebook.com/profile.php?id=61587017040966&rdid=ObHiVV8Z7R56FAiD#" 
+              target="_blank"
+              className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all"
+            >
+              <Facebook size={18} />
             </Link>
-            <Link href="#" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all">
-              <MessageCircle size={18} />
+            <Link 
+              href="https://www.amazon.ae/s?me=A9209H9CKPLQW" 
+              target="_blank"
+              className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all"
+            >
+              <ShoppingBag size={18} />
             </Link>
           </div>
         </div>
