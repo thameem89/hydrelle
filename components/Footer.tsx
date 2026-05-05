@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Instagram, Twitter, Facebook } from 'lucide-react';
+import { Globe, Mail, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -15,13 +15,13 @@ const Footer = () => {
           </p>
           <div className="flex gap-4 pt-2">
             <Link href="#" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all">
-              <Instagram size={18} />
+              <Globe size={18} />
             </Link>
             <Link href="#" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all">
-              <Twitter size={18} />
+              <Mail size={18} />
             </Link>
             <Link href="#" className="p-2 bg-white/5 rounded-full hover:bg-accent hover:text-white transition-all">
-              <Facebook size={18} />
+              <MessageCircle size={18} />
             </Link>
           </div>
         </div>
