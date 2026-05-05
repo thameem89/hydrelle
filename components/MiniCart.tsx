@@ -103,7 +103,7 @@ const MiniCart = () => {
                         </div>
                         <div className="text-right">
                           <p className="text-sm font-serif">{formatPrice(item.numericPrice * item.quantity)}</p>
-                          <p className="text-[10px] text-earth-soft opacity-60">({formatUSD(item.numericPrice * item.quantity)})</p>
+                          <p className="text-[11px] text-earth-deep font-medium">({formatUSD(item.numericPrice * item.quantity)})</p>
                         </div>
                       </div>
                     </div>
@@ -118,7 +118,7 @@ const MiniCart = () => {
                   <span className="text-lg font-serif">Subtotal</span>
                   <div className="text-right">
                     <p className="text-lg font-serif">{formatPrice(totalPrice)}</p>
-                    <p className="text-[10px] text-earth-soft opacity-60">Approx. {formatUSD(totalPrice)}</p>
+                    <p className="text-[11px] text-earth-deep font-medium mt-1">Approx. {formatUSD(totalPrice)}</p>
                   </div>
                 </div>
                 <p className="text-[10px] text-earth-deep uppercase tracking-widest text-center">

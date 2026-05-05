@@ -69,7 +69,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </Link>
         <p className="text-xs font-serif text-botanical-dark">
           {formatPrice(product.numericPrice)} 
-          <span className="text-[10px] text-earth-soft font-sans ml-2 opacity-60">
+          <span className="text-[11px] text-earth-deep font-sans font-medium ml-2">
             ({formatUSD(product.numericPrice)})
           </span>
         </p>

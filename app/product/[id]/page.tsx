@@ -137,7 +137,7 @@ const ProductPage = () => {
               </h1>
               <p className="text-2xl font-serif text-botanical-dark">
                 {product.displayPrice.split('/')[0]}
-                <span className="text-sm font-sans text-earth-soft ml-3 font-normal">
+                <span className="text-lg font-sans text-earth-deep ml-3 font-medium">
                   ({formatUSD(product.numericPrice)})
                 </span>
               </p>

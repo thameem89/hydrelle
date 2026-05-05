@@ -20,6 +20,10 @@
   --foreground: #1A1A1A;
 }
 
+html {
+  zoom: 0.85;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
