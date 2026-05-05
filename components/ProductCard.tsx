@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Product } from '@/lib/types';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, ExternalLink } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
 interface ProductCardProps {
@@ -32,13 +32,29 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           />
         </Link>
         
-        {/* Quick Add Button */}
-        <button 
-          onClick={() => addItem(product)}
-          className="absolute bottom-4 right-4 bg-cream/90 backdrop-blur-sm p-2 rounded-full shadow-md translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 hover:bg-botanical-dark hover:text-cream"
-        >
-          <ShoppingCart size={16} />
-        </button>
+        {/* Action Buttons */}
+        <div className="absolute bottom-4 left-4 right-4 flex gap-2 sm:translate-y-12 opacity-100 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 transition-all duration-300">
+          <button 
+            onClick={() => addItem(product)}
+            className="flex-1 bg-cream/90 backdrop-blur-sm p-2 rounded-full shadow-md flex items-center justify-center gap-2 hover:bg-botanical-dark hover:text-cream transition-colors"
+          >
+            <ShoppingCart size={16} />
+            <span className="text-[10px] font-bold uppercase tracking-widest hidden sm:block">Add</span>
+          </button>
+          
+          {product.amazon_link && (
+            <a 
+              href={product.amazon_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-md flex items-center justify-center gap-2 hover:bg-[#FF9900] hover:text-white transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ExternalLink size={16} />
+              <span className="text-[10px] font-bold uppercase tracking-widest hidden sm:block">Amazon</span>
+            </a>
+          )}
+        </div>
       </div>
 
       <div className="mt-6 space-y-2 w-full">

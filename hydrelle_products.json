@@ -5,55 +5,63 @@
     "price": "AED 99.00 / $26.95",
     "category": "Serum",
     "image_url": "https://hydrelleskincare.com/assets/1-2fFCd1oU.jpg",
-    "description": "Anti-Aging Face Treatment, Skin Regeneration Serum Hyaluronic Acid, Hydrating, Brightening & Youthful Glow, Slow Aging Formula Korean Skincare for All Skin Types"
+    "description": "Anti-Aging Face Treatment, Skin Regeneration Serum Hyaluronic Acid, Hydrating, Brightening & Youthful Glow, Slow Aging Formula Korean Skincare for All Skin Types",
+    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
   },
   {
     "name": "ANTALA Jojoba Premium Organic Oil Face Serum",
     "url": "https://hydrelleskincare.com/product/7",
     "price": "AED 144.60 / $39.37",
     "category": "Oil",
-    "image_url": "https://hydrelleskincare.com/assets/atlanta1-Dfw-TYWB.jpg"
+    "image_url": "https://hydrelleskincare.com/assets/atlanta1-Dfw-TYWB.jpg",
+    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
   },
   {
     "name": "Pore 55% Skin Texure Pad",
     "url": "https://hydrelleskincare.com/product/8",
     "price": "AED 99.00 / $26.25",
     "category": "Exfoliator",
-    "image_url": "https://hydrelleskincare.com/assets/pore1-CCAdeprU.jpg"
+    "image_url": "https://hydrelleskincare.com/assets/pore1-CCAdeprU.jpg",
+    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
   },
   {
     "name": "Skin Texture 27% Rice Serum",
     "url": "https://hydrelleskincare.com/product/9",
     "price": "AED 128.90 / $35.09",
     "category": "Serum",
-    "image_url": "https://hydrelleskincare.com/assets/skin_texture_serum_new-DFpa-Ax-.jpg"
+    "image_url": "https://hydrelleskincare.com/assets/skin_texture_serum_new-DFpa-Ax-.jpg",
+    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
   },
   {
     "name": "Green Repair Soothing Ampoule 50ml",
     "url": "https://hydrelleskincare.com/product/11",
     "price": "AED 189.65 / $51.63",
     "category": "Serum",
-    "image_url": "https://hydrelleskincare.com/assets/greenrepair1-CjpOYipA.jpg"
+    "image_url": "https://hydrelleskincare.com/assets/greenrepair1-CjpOYipA.jpg",
+    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
   },
   {
     "name": "Ph.D Hair Loss Control Spray",
     "url": "https://hydrelleskincare.com/product/13",
     "price": "AED 145.60 / $39.64",
     "category": "Hair Care",
-    "image_url": "https://hydrelleskincare.com/assets/hairloss1-DZO_XRk_.jpg"
+    "image_url": "https://hydrelleskincare.com/assets/hairloss1-DZO_XRk_.jpg",
+    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
   },
   {
     "name": "3X Vita Aurora Brightening and Pigmentation Care Face Serum",
     "url": "https://hydrelleskincare.com/product/14",
     "price": "AED 89.00 / $24.23",
     "category": "Spray",
-    "image_url": "https://hydrelleskincare.com/assets/3x1-GlUmBov7.jpg"
+    "image_url": "https://hydrelleskincare.com/assets/3x1-GlUmBov7.jpg",
+    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
   },
   {
     "name": "Ph.D. Daily Sunscreen Face SPF 50+/PA++++",
     "url": "https://hydrelleskincare.com/product/15",
     "price": "AED 125.00 / $34.03",
     "category": "Sunscreen",
-    "image_url": "https://hydrelleskincare.com/assets/phd1-C3SOucrq.jpg"
+    "image_url": "https://hydrelleskincare.com/assets/phd1-C3SOucrq.jpg",
+    "amazon_link": "https://www.amazon.ae/s?me=A9209H9CKPLQW"
   }
 ]

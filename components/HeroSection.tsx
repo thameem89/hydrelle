@@ -71,7 +71,7 @@ const HeroSection = () => {
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative z-20 text-center px-6 max-w-4xl">
+      <div className="relative z-20 text-center px-4 md:px-6 max-w-4xl w-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -79,21 +79,21 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
-            <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-botanical-dark font-semibold">
+            <span className="text-[9px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.4em] text-botanical-dark font-semibold">
               {slides[current].tag}
             </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-botanical-dark leading-[1.1]">
+            <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif text-botanical-dark leading-[1.1] md:leading-[1.1]">
               {slides[current].title}
             </h1>
-            <p className="text-earth-deep text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+            <p className="text-earth-deep text-sm md:text-xl max-w-2xl mx-auto font-light leading-relaxed px-4 md:px-0">
               {slides[current].description}
             </p>
-            <div className="pt-8 flex justify-center gap-6">
+            <div className="pt-4 md:pt-8 flex justify-center gap-6">
               <Link 
                 href="#products" 
-                className="inline-block bg-botanical-dark text-cream px-10 py-4 uppercase tracking-widest text-xs font-medium hover:bg-earth-deep transition-all duration-300 transform hover:-translate-y-1"
+                className="inline-block bg-botanical-dark text-cream px-8 md:px-10 py-3 md:py-4 uppercase tracking-widest text-[10px] md:text-xs font-medium hover:bg-earth-deep transition-all duration-300 transform hover:-translate-y-1"
               >
                 Shop Now
               </Link>

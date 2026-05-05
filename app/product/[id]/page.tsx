@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar';
 import MiniCart from '@/components/MiniCart';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ShoppingCart, ExternalLink, ChevronLeft, Shield, Sparkles, Leaf } from 'lucide-react';
+import { ShoppingCart, ExternalLink, ChevronLeft, Shield, Sparkles, Leaf, CheckCircle2 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
 const ProductPage = () => {
@@ -81,9 +81,17 @@ const ProductPage = () => {
             className="space-y-10"
           >
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.3em] text-earth-deep font-semibold">
-                {product.category}
-              </p>
+              <div className="flex items-center justify-between">
+                <p className="text-[9px] uppercase tracking-[0.3em] text-earth-deep font-semibold">
+                  {product.category}
+                </p>
+                {product.amazon_link && (
+                  <div className="flex items-center gap-1.5 text-[#FF9900] bg-[#FF9900]/5 px-3 py-1 rounded-full">
+                    <CheckCircle2 size={12} />
+                    <span className="text-[10px] font-bold uppercase tracking-wider">Available on Amazon</span>
+                  </div>
+                )}
+              </div>
               <h1 className="text-4xl md:text-5xl font-serif text-botanical-dark leading-tight">
                 {product.name}
               </h1>
@@ -107,15 +115,17 @@ const ProductPage = () => {
                 Add to Cart
               </button>
               
-              <a 
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full border border-botanical-dark/20 text-botanical-dark py-5 uppercase tracking-[0.2em] text-xs font-semibold flex items-center justify-center gap-3 hover:bg-botanical-light/10 transition-all"
-              >
-                <ExternalLink size={18} />
-                Buy from Amazon
-              </a>
+              {product.amazon_link && (
+                <a 
+                  href={product.amazon_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full border border-[#FF9900]/20 text-[#FF9900] py-5 uppercase tracking-[0.2em] text-xs font-semibold flex items-center justify-center gap-3 hover:bg-[#FF9900] hover:text-white transition-all shadow-sm"
+                >
+                  <ExternalLink size={18} />
+                  Buy from Amazon
+                </a>
+              )}
             </div>
 
             {/* Features/Trust badges */}

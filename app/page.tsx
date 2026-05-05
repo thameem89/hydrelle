@@ -9,6 +9,7 @@ import { getProducts } from '@/lib/products';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   const products = getProducts();
@@ -89,39 +90,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Simple Footer */}
-      <footer className="bg-cream border-t border-earth-soft/20 py-20">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-serif text-botanical-dark">HYDRELLE</h2>
-            <p className="text-earth-deep text-sm max-w-xs leading-relaxed">
-              Botanical skincare for the modern era. Clinical precision, natural radiance.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-x-20 gap-y-8 uppercase tracking-widest text-[10px] font-semibold text-botanical-dark">
-            <div className="flex flex-col gap-4">
-              <span className="text-earth-soft mb-2">Shop</span>
-              <Link href="#">All Products</Link>
-              <Link href="#">Serums</Link>
-              <Link href="#">Moisturizers</Link>
-            </div>
-            <div className="flex flex-col gap-4">
-              <span className="text-earth-soft mb-2">About</span>
-              <Link href="#">Our Story</Link>
-              <Link href="#">Ingredients</Link>
-              <Link href="#">Shipping</Link>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-earth-soft/10 text-[10px] uppercase tracking-widest text-earth-soft flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© 2024 Hydrelle Skincare. All Rights Reserved.</p>
-          <div className="flex gap-8">
-            <Link href="#">Instagram</Link>
-            <Link href="#">TikTok</Link>
-            <Link href="#">Facebook</Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

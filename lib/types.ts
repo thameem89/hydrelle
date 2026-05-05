@@ -9,6 +9,7 @@ export interface Product {
   category: string;
   image_url: string;
   description?: string;
+  amazon_link?: string;
 }
 
 export interface CartItem extends Product {

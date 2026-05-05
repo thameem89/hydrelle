@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Menu, X } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { cn } from '@/lib/utils';
@@ -37,8 +38,8 @@ const Navbar = () => {
 
         {/* Links - Desktop */}
         <div className="hidden lg:flex gap-8 items-center uppercase tracking-widest text-xs font-medium">
-          <Link href="/shop" className="hover:text-earth-deep transition-colors">Shop All</Link>
-          <Link href="/collections" className="hover:text-earth-deep transition-colors">Collections</Link>
+          <Link href="/#products" className="hover:text-earth-deep transition-colors">Shop All</Link>
+          <Link href="/#products" className="hover:text-earth-deep transition-colors">Best Sellers</Link>
         </div>
 
         {/* Logo */}
@@ -49,6 +50,7 @@ const Navbar = () => {
         {/* Links - Desktop Right + Cart */}
         <div className="flex gap-8 items-center uppercase tracking-widest text-xs font-medium">
           <Link href="/story" className="hidden lg:block hover:text-earth-deep transition-colors">Our Story</Link>
+          <Link href="/dashboard" className="hidden lg:block hover:text-earth-deep transition-colors">Portal</Link>
           <button 
             onClick={() => setIsCartOpen(true)}
             className="relative p-2 hover:bg-botanical-light/20 rounded-full transition-colors"
@@ -63,14 +65,52 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-cream border-t border-earth-soft/20 p-6 flex flex-col gap-4 uppercase tracking-widest text-xs">
-          <Link href="/shop" onClick={() => setIsMenuOpen(false)}>Shop All</Link>
-          <Link href="/collections" onClick={() => setIsMenuOpen(false)}>Collections</Link>
-          <Link href="/story" onClick={() => setIsMenuOpen(false)}>Our Story</Link>
-        </div>
-      )}
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            className="lg:hidden fixed inset-0 z-[60] bg-cream flex flex-col p-10"
+          >
+            <div className="flex justify-between items-center mb-16">
+              <Link href="/" onClick={() => setIsMenuOpen(false)} className="text-3xl font-serif text-botanical-dark">
+                HYDRELLE
+              </Link>
+              <button onClick={() => setIsMenuOpen(false)} className="text-botanical-dark">
+                <X size={32} />
+              </button>
+            </div>
+            
+            <nav className="flex flex-col gap-8">
+              {[
+                { name: 'Shop All', href: '/#products' },
+                { name: 'Our Story', href: '/story' },
+                { name: 'Collections', href: '#' },
+                { name: 'Philosophy', href: '#' },
+              ].map((item) => (
+                <Link 
+                  key={item.name}
+                  href={item.href} 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-4xl font-serif text-botanical-dark hover:italic transition-all"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="mt-auto space-y-4">
+              <p className="text-[10px] uppercase tracking-widest text-earth-soft">Follow Us</p>
+              <div className="flex gap-6 text-botanical-dark text-xs uppercase tracking-widest font-bold">
+                <Link href="#">Instagram</Link>
+                <Link href="#">TikTok</Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
