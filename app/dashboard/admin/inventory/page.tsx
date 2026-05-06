@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Plus, 
@@ -16,7 +16,8 @@ import { getProducts } from '@/lib/products';
 import { cn } from '@/lib/utils';
 
 const InventoryPage = () => {
-  const [products, setProducts] = useState(getProducts());
+  const [products, setProducts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,6 +31,29 @@ const InventoryPage = () => {
     image_url: ''
   });
 
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch('/api/products');
+      const data = await response.json();
+      const productsArray = data.products || data;
+      // Map to include displayPrice and numericPrice like the lib does
+      const formatted = productsArray.map((p: any) => ({
+        ...p,
+        numericPrice: p.price_aed || 0,
+        displayPrice: `AED ${p.price_aed?.toFixed(2)}`
+      }));
+      setProducts(formatted);
+    } catch (error) {
+      console.error('Failed to fetch products:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const filteredProducts = products.filter(p => 
     p.name.toLowerCase().includes(search.toLowerCase()) || 
     p.category.toLowerCase().includes(search.toLowerCase())
@@ -38,9 +62,9 @@ const InventoryPage = () => {
   const handleEdit = (product: any) => {
     setEditingProduct(product);
     setFormData({
-      name: product.name,
-      category: product.category,
-      price_aed: product.numericPrice.toString(),
+      name: product.name || '',
+      category: product.category || 'Serum',
+      price_aed: (product.numericPrice || product.price_aed || '').toString(),
       amazon_link: product.amazon_link || '',
       description: product.description || '',
       image_url: product.image_url || ''
@@ -251,85 +275,91 @@ const InventoryPage = () => {
       </div>
 
       {/* Inventory Table */}
-      <div className="bg-white rounded-[2.5rem] border border-earth-soft/10 shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left">
-            <thead>
-              <tr className="bg-cream/30 text-[10px] uppercase tracking-widest text-earth-soft font-bold">
-                <th className="px-8 py-5">Product</th>
-                <th className="px-8 py-5">Category</th>
-                <th className="px-8 py-5">Price</th>
-                <th className="px-8 py-5">Stock Level</th>
-                <th className="px-8 py-5 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-earth-soft/10">
-              {filteredProducts.map((product, idx) => {
-                const stock = 100 - idx * 12; // Mock stock
-                const isLow = stock < 20;
+      <div className="bg-white rounded-[2.5rem] border border-earth-soft/10 shadow-sm overflow-hidden min-h-[400px] flex flex-col">
+        {loading ? (
+          <div className="flex-1 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-botanical-dark"></div>
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="bg-cream/30 text-[10px] uppercase tracking-widest text-earth-soft font-bold">
+                  <th className="px-8 py-5">Product</th>
+                  <th className="px-8 py-5">Category</th>
+                  <th className="px-8 py-5">Price</th>
+                  <th className="px-8 py-5">Stock Level</th>
+                  <th className="px-8 py-5 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-earth-soft/10">
+                {filteredProducts.map((product, idx) => {
+                  const stock = 100 - idx * 12; // Mock stock
+                  const isLow = stock < 20;
 
-                return (
-                  <tr key={product.id} className="text-sm text-botanical-dark hover:bg-cream/10 transition-colors">
-                    <td className="px-8 py-6">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-cream border border-earth-soft/5 overflow-hidden flex-shrink-0 relative">
-                          <img src={product.image_url} alt={product.name} className="object-cover w-full h-full" />
+                  return (
+                    <tr key={product.id} className="text-sm text-botanical-dark hover:bg-cream/10 transition-colors">
+                      <td className="px-8 py-6">
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 rounded-xl bg-cream border border-earth-soft/5 overflow-hidden flex-shrink-0 relative">
+                            <img src={product.image_url} alt={product.name} className="object-cover w-full h-full" />
+                          </div>
+                          <div className="min-w-0">
+                            <p className="font-semibold truncate max-w-[200px]">{product.name}</p>
+                            <p className="text-[10px] text-earth-soft font-medium truncate uppercase tracking-tighter">SKU: HY-{product.id}-001</p>
+                          </div>
                         </div>
-                        <div className="min-w-0">
-                          <p className="font-semibold truncate max-w-[200px]">{product.name}</p>
-                          <p className="text-[10px] text-earth-soft font-medium truncate uppercase tracking-tighter">SKU: HY-{product.id}-001</p>
+                      </td>
+                      <td className="px-8 py-6">
+                        <span className="px-3 py-1 bg-botanical-light/20 text-botanical-dark rounded-full text-[10px] font-bold uppercase tracking-wider">
+                          {product.category}
+                        </span>
+                      </td>
+                      <td className="px-8 py-6 font-medium text-earth-deep">
+                        {product.displayPrice ? product.displayPrice.split('/')[0] : `AED ${product.numericPrice}`}
+                      </td>
+                      <td className="px-8 py-6">
+                        <div className="space-y-2 max-w-[120px]">
+                          <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
+                            <span className={isLow ? "text-red-500" : "text-green-600"}>
+                              {stock} in stock
+                            </span>
+                          </div>
+                          <div className="h-1.5 w-full bg-cream rounded-full overflow-hidden">
+                            <div 
+                              className={cn("h-full rounded-full transition-all duration-1000", isLow ? "bg-red-400" : "bg-green-500")}
+                              style={{ width: `${stock}%` }}
+                            />
+                          </div>
                         </div>
-                      </div>
-                    </td>
-                    <td className="px-8 py-6">
-                      <span className="px-3 py-1 bg-botanical-light/20 text-botanical-dark rounded-full text-[10px] font-bold uppercase tracking-wider">
-                        {product.category}
-                      </span>
-                    </td>
-                    <td className="px-8 py-6 font-medium text-earth-deep">
-                      {product.displayPrice ? product.displayPrice.split('/')[0] : `AED ${product.numericPrice}`}
-                    </td>
-                    <td className="px-8 py-6">
-                      <div className="space-y-2 max-w-[120px]">
-                        <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
-                          <span className={isLow ? "text-red-500" : "text-green-600"}>
-                            {stock} in stock
-                          </span>
+                      </td>
+                      <td className="px-8 py-6 text-right">
+                        <div className="flex justify-end gap-2">
+                          <button 
+                            onClick={() => handleEdit(product)}
+                            className="p-2 hover:bg-botanical-light/20 rounded-lg text-earth-soft hover:text-botanical-dark transition-colors"
+                          >
+                            <Edit size={16} />
+                          </button>
+                          <button 
+                            onClick={() => handleDelete(product.id)}
+                            className="p-2 hover:bg-red-50 rounded-lg text-earth-soft hover:text-red-600 transition-colors"
+                          >
+                            <Trash2 size={16} />
+                          </button>
+                          <button className="p-2 hover:bg-cream rounded-lg text-earth-soft transition-colors">
+                            <MoreVertical size={16} />
+                          </button>
                         </div>
-                        <div className="h-1.5 w-full bg-cream rounded-full overflow-hidden">
-                          <div 
-                            className={cn("h-full rounded-full transition-all duration-1000", isLow ? "bg-red-400" : "bg-green-500")}
-                            style={{ width: `${stock}%` }}
-                          />
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-8 py-6 text-right">
-                      <div className="flex justify-end gap-2">
-                        <button 
-                          onClick={() => handleEdit(product)}
-                          className="p-2 hover:bg-botanical-light/20 rounded-lg text-earth-soft hover:text-botanical-dark transition-colors"
-                        >
-                          <Edit size={16} />
-                        </button>
-                        <button 
-                          onClick={() => handleDelete(product.id)}
-                          className="p-2 hover:bg-red-50 rounded-lg text-earth-soft hover:text-red-600 transition-colors"
-                        >
-                          <Trash2 size={16} />
-                        </button>
-                        <button className="p-2 hover:bg-cream rounded-lg text-earth-soft transition-colors">
-                          <MoreVertical size={16} />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-        {filteredProducts.length === 0 && (
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {!loading && filteredProducts.length === 0 && (
           <div className="p-20 text-center space-y-4">
             <div className="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto text-earth-soft">
               <Search size={32} />
