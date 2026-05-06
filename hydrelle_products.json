@@ -171,6 +171,7 @@
       "amazon_link": "https://amzn.eu/d/0gPx7Gj5",
       "description": "Deep Hydration & Skin Barrier Repair Serum with Centella Cica, Hyaluronic Acid For Deep Nourishment & Hydration, For Men & Women",
       "images": [
+        "https://m.media-amazon.com/images/I/31q0s-15SaL._AC_.jpg",
         "https://m.media-amazon.com/images/I/41h9CanjMML._AC_.jpg",
         "https://m.media-amazon.com/images/I/31EgmDthkLL.jpg",
         "https://m.media-amazon.com/images/I/41e5YvXnbQL._AC_.jpg",
@@ -188,8 +189,7 @@
         "https://m.media-amazon.com/images/I/51InWjvuSqL._AC_SL1080_.jpg",
         "https://m.media-amazon.com/images/I/41J3q2ZmqoL._AC_.jpg",
         "https://m.media-amazon.com/images/I/415x2xlDlUL._AC_.jpg",
-        "https://m.media-amazon.com/images/I/619vsWzJiyL._AC_SL1080_.jpg",
-        "https://m.media-amazon.com/images/I/31q0s-15SaL._AC_.jpg"
+        "https://m.media-amazon.com/images/I/619vsWzJiyL._AC_SL1080_.jpg"
       ],
       "video": null,
       "presentation_image": null,
@@ -201,7 +201,7 @@
         "Deep Nourishment",
         "For Men & Women"
       ],
-      "image_url": "https://m.media-amazon.com/images/I/41h9CanjMML._AC_.jpg",
+      "image_url": "https://m.media-amazon.com/images/I/31q0s-15SaL._AC_.jpg",
       "price": "AED 100.00 / $27.25"
     },
     {
