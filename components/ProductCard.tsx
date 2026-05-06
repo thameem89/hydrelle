@@ -34,25 +34,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </Link>
         
         {/* Action Buttons */}
-        <div className="absolute bottom-4 left-4 right-4 flex gap-2 sm:translate-y-12 opacity-100 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 transition-all duration-300 scale-90 sm:scale-100 origin-bottom">
+        <div className="absolute inset-x-0 bottom-6 flex justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 z-10 pointer-events-none group-hover:pointer-events-auto">
           <button 
-            onClick={() => addItem(product)}
-            className="flex-1 bg-cream/90 backdrop-blur-sm p-2 rounded-full shadow-md flex items-center justify-center gap-2 hover:bg-botanical-dark hover:text-cream transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              addItem(product);
+            }}
+            className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-botanical-dark shadow-lg hover:bg-botanical-dark hover:text-white transition-all transform active:scale-95"
           >
             <ShoppingCart size={16} />
-            <span className="text-[10px] font-bold uppercase tracking-widest hidden sm:block">Add</span>
           </button>
-          
           {product.amazon_link && (
             <a 
               href={product.amazon_link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-md flex items-center justify-center gap-2 hover:bg-[#FF9900] hover:text-white transition-colors"
               onClick={(e) => e.stopPropagation()}
+              className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#FF9900] shadow-lg hover:bg-[#FF9900] hover:text-white transition-all transform active:scale-95"
             >
               <ExternalLink size={16} />
-              <span className="text-[10px] font-bold uppercase tracking-widest hidden sm:block">Amazon</span>
             </a>
           )}
         </div>
