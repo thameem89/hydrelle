@@ -12,25 +12,32 @@ import { useCart } from '@/context/CartContext';
 import { cn, formatUSD } from '@/lib/utils';
 
 const ProductPage = () => {
-  const { id } = useParams();
+  const params = useParams();
   const router = useRouter();
-  const [product, setProduct] = React.useState<any>(null);
-  const [loading, setLoading] = React.useState(true);
+  const [product, setProduct] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
   const { addItem } = useCart();
-  const [activeMedia, setActiveMedia] = React.useState<string>('');
-  const [mediaType, setMediaType] = React.useState<'image' | 'video'>('image');
+  const [activeMedia, setActiveMedia] = useState('');
+  const [mediaType, setMediaType] = useState<'image' | 'video'>('image');
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchProduct = async () => {
-      const data = await getProductById(id as string);
-      if (data) {
-        setProduct(data);
-        setActiveMedia(data.image_url);
+      try {
+        const id = await params.id;
+        const data = await getProductById(id as string);
+        if (data) {
+          setProduct(data);
+          const initialImage = data.image_url || (data.images && data.images.length > 0 ? data.images[0] : '');
+          setActiveMedia(initialImage);
+        }
+      } catch (error) {
+        console.error('Failed to fetch product:', error);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
     fetchProduct();
-  }, [id]);
+  }, [params.id]);
 
   if (loading) {
     return (

@@ -16,6 +16,8 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addItem } = useCart();
 
+  const displayImage = product.image_url || (product.images && product.images.length > 0 ? product.images[0] : '');
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -26,7 +28,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="relative w-full aspect-square overflow-hidden bg-white/50 border border-earth-soft/10 p-8 flex items-center justify-center">
         <Link href={`/product/${product.id}`} className="w-full h-full relative">
           <Image
-            src={product.image_url}
+            src={displayImage}
             alt={product.name}
             fill
             className="object-contain transition-transform duration-700 group-hover:scale-105"
