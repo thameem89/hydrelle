@@ -11,7 +11,15 @@ import Link from 'next/link';
 import Footer from '@/components/Footer';
 
 const StoryPage = () => {
-  const products = getProducts();
+  const [products, setProducts] = React.useState<any[]>([]);
+  
+  React.useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await getProducts();
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <main className="min-h-screen bg-cream">

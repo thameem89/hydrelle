@@ -17,7 +17,17 @@ import { cn } from '@/lib/utils';
 
 const RoutinePage = () => {
   const [activeTab, setActiveTab] = useState<'am' | 'pm'>('am');
-  const products = getProducts();
+  const [products, setProducts] = useState<any[]>([]);
+
+  React.useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await getProducts();
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
+
+  if (products.length === 0) return null;
 
   const routine = {
     am: [

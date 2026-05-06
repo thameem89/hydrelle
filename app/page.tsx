@@ -25,6 +25,8 @@ export default function Home() {
   }, []);
 
   if (loading) return null; // Or a skeleton loader
+
+  return (
     <main className="min-h-screen bg-cream">
       <Navbar />
       <MiniCart />

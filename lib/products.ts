@@ -45,6 +45,10 @@ export async function getProducts(): Promise<Product[]> {
       details
     };
   });
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return [];
+  }
 }
 
 export async function getProductById(id: string): Promise<Product | undefined> {
