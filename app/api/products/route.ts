@@ -80,6 +80,8 @@ export async function PUT(request: Request) {
     if (updateData.images && updateData.images.length > 0 && !updateData.image_url) {
       updateData.image_url = updateData.images[0];
     }
+    // Recalculate price strings
+    if (updateData.price_aed) {
       const priceAed = parseFloat(updateData.price_aed);
       updateData.price_usd = priceAed / 3.67;
       updateData.price = `AED ${priceAed.toFixed(2)}`;
