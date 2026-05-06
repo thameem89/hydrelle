@@ -8,7 +8,7 @@ export async function getProducts(): Promise<Product[]> {
     const supabaseProducts = await getAllProducts();
     
     // 2. Fallback to static JSON if Supabase is not configured or fails
-    const productsArray = supabaseProducts || (productsData.products ? productsData.products : productsData);
+    const productsArray = (supabaseProducts || (productsData.products ? productsData.products : productsData)) as any[];
     
     return productsArray.map((item: any) => {
     // Extract ID
