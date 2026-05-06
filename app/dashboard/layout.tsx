@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
 import DashboardHeader from '@/components/DashboardHeader';
 import { Menu, X, User, ShieldCheck } from 'lucide-react';
@@ -13,43 +13,43 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [role, setRole] = useState<'customer' | 'admin'>('customer');
+  const [isAuthChecking, setIsAuthChecking] = useState(true);
 
-  // Auto-detect role from path
+  // Auto-detect role and enforce auth
   useEffect(() => {
-    if (pathname.includes('/dashboard/admin')) {
-      setRole('admin');
-    } else {
-      setRole('customer');
-    }
-  }, [pathname]);
+    const checkAuth = () => {
+      const isAdminPath = pathname.includes('/dashboard/admin');
+      
+      if (isAdminPath) {
+        const isAuth = localStorage.getItem('admin_auth') === 'true';
+        if (!isAuth) {
+          router.push('/dashboard/login');
+          return;
+        }
+        setRole('admin');
+      } else {
+        setRole('customer');
+      }
+      setIsAuthChecking(false);
+    };
+
+    checkAuth();
+  }, [pathname, router]);
+
+  if (isAuthChecking && pathname.includes('/dashboard/admin')) {
+    return (
+      <div className="min-h-screen bg-[#F9F7F2] flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-botanical-dark"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#F9F7F2]">
-      {/* Role Toggle for Demo */}
-      <div className="fixed bottom-6 right-6 z-[100] flex gap-2 bg-white p-2 rounded-full shadow-2xl border border-earth-soft/20 scale-75 md:scale-100">
-        <button 
-          onClick={() => setRole('customer')}
-          className={cn(
-            "flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all",
-            role === 'customer' ? "bg-botanical-dark text-cream" : "text-earth-deep hover:bg-botanical-light/20"
-          )}
-        >
-          <User size={14} />
-          Customer View
-        </button>
-        <button 
-          onClick={() => setRole('admin')}
-          className={cn(
-            "flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all",
-            role === 'admin' ? "bg-botanical-dark text-cream" : "text-earth-deep hover:bg-botanical-light/20"
-          )}
-        >
-          <ShieldCheck size={14} />
-          Admin View
-        </button>
-      </div>
+
 
       {/* Desktop Sidebar */}
       <div className="hidden lg:block">
