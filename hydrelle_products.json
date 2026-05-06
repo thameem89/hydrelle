@@ -7,19 +7,12 @@
       "id": 5,
       "name": "Ampoule Face Serum 30ml",
       "category": "Serum",
-      "price_aed": 99.00,
+      "price_aed": 99,
       "price_usd": 26.95,
       "amazon_link": "https://amzn.eu/d/0bcFPi2J",
       "description": "Anti-Aging Face Treatment, Skin Regeneration Serum Hyaluronic Acid, Hydrating, Brightening & Youthful Glow, Slow Aging Formula Korean Skincare for All Skin Types",
       "images": [
-        "https://www.hydrelleskincare.com/assets/1-2fFCd1oU.jpg",
-        "https://www.hydrelleskincare.com/assets/2-Dh4bqizM.jpg",
-        "https://www.hydrelleskincare.com/assets/3-DYeNyLdB.jpg",
-        "https://www.hydrelleskincare.com/assets/4-B0Ys-GKm.jpg",
-        "https://www.hydrelleskincare.com/assets/5-B30mEEHk.jpg",
-        "https://www.hydrelleskincare.com/assets/6-6qKUXrdl.jpg",
-        "https://www.hydrelleskincare.com/assets/7-DKnc7hHa.jpg",
-        "https://www.hydrelleskincare.com/assets/8-3jTqpk2s.jpg"
+        "/assets/product_5.png"
       ],
       "video": "https://www.hydrelleskincare.com/assets/bebechiol_ampoule_video-DmIuois8.mp4",
       "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-kRczezZk.png",
@@ -33,25 +26,19 @@
         "Slow Aging Formula",
         "Korean Skincare",
         "For All Skin Types"
-      ]
+      ],
+      "image_url": "/assets/product_5.png"
     },
     {
       "id": 7,
       "name": "ANTALA Jojoba Premium Organic Oil Face Serum",
       "category": "Oil",
-      "price_aed": 144.60,
+      "price_aed": 144.6,
       "price_usd": 39.37,
       "amazon_link": "https://amzn.eu/d/00uDDO6y",
       "description": "100% pure organic jojoba oil for deep nourishment of skin and hair.",
       "images": [
-        "https://www.hydrelleskincare.com/assets/atlanta1-Dfw-TYWB.jpg",
-        "https://www.hydrelleskincare.com/assets/atlanta2-CHd3STbD.jpg",
-        "https://www.hydrelleskincare.com/assets/atlanta3-B5Rutorr.jpg",
-        "https://www.hydrelleskincare.com/assets/atlanta4-DwCRY4lH.jpg",
-        "https://www.hydrelleskincare.com/assets/atlanta5-OZsakOfJ.jpg",
-        "https://www.hydrelleskincare.com/assets/atlanta6-ByF-uOZ9.jpg",
-        "https://www.hydrelleskincare.com/assets/atlanta7-D5J1WDqg.jpg",
-        "https://www.hydrelleskincare.com/assets/atlanta8-DyJGoRNL.jpg"
+        "/assets/product_7.png"
       ],
       "video": "https://www.hydrelleskincare.com/assets/jojoba_oil_video-0kQevvUN.mp4",
       "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-Cbe5RR57.png",
@@ -60,28 +47,19 @@
         "Jojoba Oil",
         "Deep Nourishment",
         "For Skin and Hair"
-      ]
+      ],
+      "image_url": "/assets/product_7.png"
     },
     {
       "id": 8,
       "name": "Pore 55% Skin Texture Pad",
       "category": "Exfoliator",
-      "price_aed": 99.00,
+      "price_aed": 99,
       "price_usd": 26.25,
       "amazon_link": "https://amzn.eu/d/0imcjuwN",
       "description": "Aha Bha Lha, Retinol & Rice Extract For Enlarged Pores, Textured Skin, Sebum Control, Exfoliating Toner Pads Glass Non-Irritating, Korean Skincare(60Ct)",
       "images": [
-        "https://www.hydrelleskincare.com/assets/pore1-CCAdeprU.jpg",
-        "https://www.hydrelleskincare.com/assets/pore2-Bpfn1N9r.jpg",
-        "https://www.hydrelleskincare.com/assets/pore3-BRPNReDa.jpg",
-        "https://www.hydrelleskincare.com/assets/pore4-BP6UJT18.jpg",
-        "https://www.hydrelleskincare.com/assets/pore5-B9oQMbfM.jpg",
-        "https://www.hydrelleskincare.com/assets/pore6-Ds9h6O3k.jpg",
-        "https://www.hydrelleskincare.com/assets/PORE%20SKIN%20TEXTURE%20PAD%20(1)-CwNp368t.jpg",
-        "https://www.hydrelleskincare.com/assets/PORE%20SKIN%20TEXTURE%20PAD%20(2)-DS_c7aRV.jpg",
-        "https://www.hydrelleskincare.com/assets/PORE%20SKIN%20TEXTURE%20PAD%20(3)-dqABuz2r.jpg",
-        "https://www.hydrelleskincare.com/assets/PORE%20SKIN%20TEXTURE%20PAD%20(4)-DKfReNuB.jpg",
-        "https://www.hydrelleskincare.com/assets/PORE%20SKIN%20TEXTURE%20PAD%20(5)-Dp1SwliK.jpg"
+        "/assets/product_8.png"
       ],
       "video": "https://www.hydrelleskincare.com/assets/pore_skin_pad_video-C6l93QWY.mp4",
       "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-DD3BW7oE.png",
@@ -97,27 +75,19 @@
         "Non-Irritating",
         "Korean Skincare",
         "60 Count"
-      ]
+      ],
+      "image_url": "/assets/product_8.png"
     },
     {
       "id": 9,
       "name": "Skin Texture 27% Rice Serum",
       "category": "Serum",
-      "price_aed": 128.90,
+      "price_aed": 128.9,
       "price_usd": 35.09,
       "amazon_link": "https://amzn.eu/d/09AlJkYi",
       "description": "Anti-aging, Skin Texture Improvement Pore Minimizing, Texture Refining, Korean Glass Skin Serum with Retinol & Collagen T3, 3.04 fl oz (90ml)",
       "images": [
-        "https://www.hydrelleskincare.com/assets/skin_texture_serum_new-DFpa-Ax-.jpg",
-        "https://www.hydrelleskincare.com/assets/skin_texture_serum_2-Bpgs94uE.jpg",
-        "https://www.hydrelleskincare.com/assets/skin_texture_serum_3-Cc9q7gxa.jpg",
-        "https://www.hydrelleskincare.com/assets/Skin%20Texture%20Solution-Bn6nuXaR.jpg",
-        "https://www.hydrelleskincare.com/assets/Retinol%20Effect-DwoBj03V.jpg",
-        "https://www.hydrelleskincare.com/assets/Clinically%20Proven%20Pore%20Depth%20_%20Area%20Reduction-DGsPJl9w.jpg",
-        "https://www.hydrelleskincare.com/assets/Visible%20Pore%20Refinement%20in%204%20Weeks-BQwl-JY0.jpg",
-        "https://www.hydrelleskincare.com/assets/4%20Key%20Ingredients-C6Kx2KEK.jpg",
-        "https://www.hydrelleskincare.com/assets/Layer%20More_%20Improve%20Faster-rY8kQwQE.jpg",
-        "https://www.hydrelleskincare.com/assets/How%20to%20Use-DdgcUPji.jpg"
+        "/assets/product_9.png"
       ],
       "video": "https://www.hydrelleskincare.com/assets/skin_texture_serum_video-BGAS4-dB.mp4",
       "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-BMokxtOR.png",
@@ -131,7 +101,8 @@
         "Collagen T3",
         "27% Rice Extract",
         "3.04 fl oz (90ml)"
-      ]
+      ],
+      "image_url": "/assets/product_9.png"
     },
     {
       "id": 11,
@@ -142,15 +113,7 @@
       "amazon_link": "https://amzn.eu/d/0gPx7Gj5",
       "description": "Deep Hydration & Skin Barrier Repair Serum with Centella Cica, Hyaluronic Acid For Deep Nourishment & Hydration, For Men & Women",
       "images": [
-        "https://www.hydrelleskincare.com/assets/greenrepair1-CjpOYipA.jpg",
-        "https://www.hydrelleskincare.com/assets/greenrepair2-BPNhfPOv.jpg",
-        "https://www.hydrelleskincare.com/assets/greenrepair3-CsMWcwNl.jpg",
-        "https://www.hydrelleskincare.com/assets/greenrepair4-JcD2siDH.jpg",
-        "https://www.hydrelleskincare.com/assets/greenrepair5-CW-PPYzA.jpg",
-        "https://www.hydrelleskincare.com/assets/greenrepair6-Cj_0VAIY.jpg",
-        "https://www.hydrelleskincare.com/assets/greenrepair7-CXaSjQS4.jpg",
-        "https://www.hydrelleskincare.com/assets/greenrepair8-CmE4N8SR.jpg",
-        "https://www.hydrelleskincare.com/assets/greenrepair9-5c9_UYCw.jpg"
+        "/assets/product_11.png"
       ],
       "video": "https://www.hydrelleskincare.com/assets/green_repair_ampoule_video-B-Oq5b58.mp4",
       "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-BJro_PD_.png",
@@ -161,23 +124,19 @@
         "Hyaluronic Acid",
         "Deep Nourishment",
         "For Men & Women"
-      ]
+      ],
+      "image_url": "/assets/product_11.png"
     },
     {
       "id": 13,
       "name": "Ph.D Hair Loss Control Spray",
       "category": "Hair Care",
-      "price_aed": 145.60,
+      "price_aed": 145.6,
       "price_usd": 39.64,
       "amazon_link": "https://amzn.eu/d/02Bkunr6",
       "description": "Deep Rooted Scalp Care, Root Volume Boost, Non-Sticky Vegan Scalp Serum Regen Formula Korean Hair Growth Spray for Men & Women 150ml",
       "images": [
-        "https://www.hydrelleskincare.com/assets/hairloss1-DZO_XRk_.jpg",
-        "https://www.hydrelleskincare.com/assets/hairloss2-DOttaZXH.jpg",
-        "https://www.hydrelleskincare.com/assets/hairloss3-DDY5buBe.jpg",
-        "https://www.hydrelleskincare.com/assets/hairloss4-6S56ZWEs.jpg",
-        "https://www.hydrelleskincare.com/assets/hairloss5-rBMYJIeA.jpg",
-        "https://www.hydrelleskincare.com/assets/hairloss6-B9wdtaEe.jpg"
+        "/assets/product_13.png"
       ],
       "video": null,
       "presentation_image": null,
@@ -190,22 +149,19 @@
         "Korean Hair Growth Spray",
         "For Men & Women",
         "150ml"
-      ]
+      ],
+      "image_url": "/assets/product_13.png"
     },
     {
       "id": 14,
       "name": "3X Vita Aurora Brightening and Pigmentation Care Face Serum",
       "category": "Spray",
-      "price_aed": 89.00,
+      "price_aed": 89,
       "price_usd": 24.23,
       "amazon_link": "https://amzn.eu/d/0bBdVhV8",
       "description": "3X Vita Aurora Brightening and Pigmentation Care Face Serum Dark Spot, 10% Niacinamide with Madewhite & Rosehip Oil,Glow Deep Serum, Skin Tone Corrector, Daily Korean Skincare for Men and Women 30ml",
       "images": [
-        "https://www.hydrelleskincare.com/assets/3x1-GlUmBov7.jpg",
-        "https://www.hydrelleskincare.com/assets/3x2-BM741A-O.jpg",
-        "https://www.hydrelleskincare.com/assets/3x3-DAECFb94.jpg",
-        "https://www.hydrelleskincare.com/assets/3x4-NbB47qwO.jpg",
-        "https://www.hydrelleskincare.com/assets/3x5-D4RTGF4s.jpg"
+        "/assets/product_14.png"
       ],
       "video": null,
       "presentation_image": null,
@@ -221,26 +177,19 @@
         "Daily Korean Skincare",
         "For Men and Women",
         "30ml"
-      ]
+      ],
+      "image_url": "/assets/product_14.png"
     },
     {
       "id": 15,
       "name": "Ph.D. Daily Sunscreen Face SPF 50+/PA++++",
       "category": "Sunscreen",
-      "price_aed": 125.00,
+      "price_aed": 125,
       "price_usd": 34.03,
       "amazon_link": "https://amzn.eu/d/09L5Iry6",
       "description": "Resilience, 50ml | Melanin Control Formula Korean Sunscreen Sunblock for Face for Men and Women Skincare",
       "images": [
-        "https://www.hydrelleskincare.com/assets/phd1-C3SOucrq.jpg",
-        "https://www.hydrelleskincare.com/assets/phd2-CSDGHfpZ.jpg",
-        "https://www.hydrelleskincare.com/assets/phd3-De3HqFNK.jpg",
-        "https://www.hydrelleskincare.com/assets/phd4-CxzH80Lv.jpg",
-        "https://www.hydrelleskincare.com/assets/phd5-ChezpP1F.jpg",
-        "https://www.hydrelleskincare.com/assets/phd6-CqxiMYip.jpg",
-        "https://www.hydrelleskincare.com/assets/phd8-DKPPgBZG.jpg",
-        "https://www.hydrelleskincare.com/assets/phd9-VXhIt98e.jpg",
-        "https://www.hydrelleskincare.com/assets/phd10-DIMSBF6t.jpg"
+        "/assets/product_15.png"
       ],
       "video": null,
       "presentation_image": null,
@@ -251,7 +200,8 @@
         "Sunblock for Face",
         "For Men and Women",
         "50ml"
-      ]
+      ],
+      "image_url": "/assets/product_15.png"
     }
   ]
 }
