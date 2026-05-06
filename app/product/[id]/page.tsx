@@ -54,8 +54,8 @@ const ProductPage = () => {
   }
 
   const allMedia = [
-    ...(product.images || [product.image_url]).map(src => ({ src, type: 'image' as const })),
-    ...(product.videos || []).map(src => ({ src, type: 'video' as const }))
+    ...(product.images || [product.image_url]).map((src: string) => ({ src, type: 'image' as const })),
+    ...(product.videos || []).map((src: string) => ({ src, type: 'video' as const }))
   ];
 
   return (
