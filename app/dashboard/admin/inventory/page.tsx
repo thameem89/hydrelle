@@ -226,43 +226,98 @@ const InventoryPage = () => {
                 </div>
 
                 {/* Gallery Management */}
-                <div className="space-y-3">
-                  <p className="text-[10px] text-earth-soft italic px-1">Thumbnails ({formData.images?.length || 0})</p>
-                  <div className="grid grid-cols-2 gap-4">
-                    {(formData as any).images?.map((img: string, idx: number) => (
-                      <div key={idx} className="relative group aspect-square bg-white rounded-xl border border-earth-soft/5 overflow-hidden">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between px-1">
+                    <p className="text-[10px] text-earth-soft italic">Thumbnails ({formData.images?.length || 0}/7)</p>
+                    <div className="flex gap-2">
+                      <label className="cursor-pointer bg-botanical-dark/5 hover:bg-botanical-dark/10 text-botanical-dark px-3 py-1.5 rounded-lg text-[9px] font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5">
+                        <Plus size={12} />
+                        Upload Local
+                        <input 
+                          type="file" 
+                          className="hidden" 
+                          accept="image/*"
+                          onChange={async (e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              if ((formData.images?.length || 0) >= 7) {
+                                alert("Maximum 7 thumbnails allowed.");
+                                return;
+                              }
+                              const uploadData = new FormData();
+                              uploadData.append('file', file);
+                              const res = await fetch('/api/upload', { method: 'POST', body: uploadData });
+                              const result = await res.json();
+                              if (result.success) {
+                                setFormData({...formData, images: [...(formData.images || []), result.url]});
+                              }
+                            }
+                          }}
+                        />
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {(formData.images || []).map((img, idx) => (
+                      <div key={idx} className="relative group aspect-square bg-white rounded-2xl border border-earth-soft/5 overflow-hidden shadow-sm">
                         <img src={img} alt="" className="object-cover w-full h-full" />
                         <button 
                           type="button"
                           onClick={() => {
-                            const newImages = [...(formData as any).images];
+                            const newImages = [...(formData.images || [])];
                             newImages.splice(idx, 1);
-                            setFormData({...formData, images: newImages} as any);
+                            setFormData({...formData, images: newImages});
                           }}
-                          className="absolute top-2 right-2 p-1.5 bg-red-500 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="absolute top-2 right-2 p-1.5 bg-red-500/90 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm"
                         >
                           <Trash2 size={12} />
                         </button>
                       </div>
                     ))}
-                    <div className="aspect-square bg-white border-2 border-dashed border-earth-soft/10 rounded-xl flex flex-col items-center justify-center p-4 text-center space-y-2">
-                      <Plus size={20} className="text-earth-soft" />
-                      <input 
-                        type="text"
-                        placeholder="Add URL"
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter') {
-                            e.preventDefault();
-                            const val = (e.target as HTMLInputElement).value;
-                            if (val) {
-                              setFormData({...formData, images: [...((formData as any).images || []), val]} as any);
-                              (e.target as HTMLInputElement).value = '';
-                            }
-                          }
-                        }}
-                        className="w-full text-[10px] bg-transparent text-center focus:outline-none"
-                      />
-                    </div>
+                    {(formData.images || []).length < 7 && (
+                      <div className="aspect-square bg-cream/50 border-2 border-dashed border-earth-soft/20 rounded-2xl flex flex-col items-center justify-center p-3 relative group">
+                        <div className="flex flex-col items-center gap-2 w-full">
+                          <Plus size={16} className="text-earth-soft" />
+                          <input 
+                            type="text"
+                            placeholder="Paste URL"
+                            className="w-full text-[9px] bg-white border border-earth-soft/10 rounded-lg px-2 py-1.5 text-center focus:outline-none focus:ring-2 focus:ring-botanical-dark/10"
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                e.preventDefault();
+                                const target = e.target as HTMLInputElement;
+                                if (target.value) {
+                                  if ((formData.images || []).length >= 7) {
+                                    alert("Maximum 7 thumbnails allowed.");
+                                    return;
+                                  }
+                                  setFormData({...formData, images: [...(formData.images || []), target.value]});
+                                  target.value = '';
+                                }
+                              }
+                            }}
+                          />
+                          <button 
+                            type="button"
+                            onClick={(e) => {
+                              const input = (e.currentTarget.previousSibling as HTMLInputElement);
+                              if (input.value) {
+                                if ((formData.images || []).length >= 7) {
+                                  alert("Maximum 7 thumbnails allowed.");
+                                  return;
+                                }
+                                setFormData({...formData, images: [...(formData.images || []), input.value]});
+                                input.value = '';
+                              }
+                            }}
+                            className="text-[8px] font-bold uppercase tracking-widest text-botanical-dark hover:underline"
+                          >
+                            Add URL
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
