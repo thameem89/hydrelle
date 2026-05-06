@@ -22,7 +22,7 @@ export async function POST(request: Request) {
   try {
     const newProduct = await request.json();
     
-    const priceAed = parseFloat(newProduct.price_aed) || 0;
+    const images = newProduct.images || [];
     const productToSave = {
       name: newProduct.name || 'Unnamed Product',
       category: newProduct.category || 'Serum',
@@ -30,8 +30,8 @@ export async function POST(request: Request) {
       price_usd: priceAed / 3.67,
       amazon_link: newProduct.amazon_link || '',
       description: newProduct.description || '',
-      image_url: newProduct.image_url || '',
-      images: newProduct.images || [],
+      image_url: newProduct.image_url || (images.length > 0 ? images[0] : ''),
+      images: images,
       videos: [],
       details: {
         product_presentation: newProduct.description || '',
@@ -76,8 +76,10 @@ export async function PUT(request: Request) {
     const updatedProduct = await request.json();
     const { id, ...updateData } = updatedProduct;
 
-    // Recalculate price strings
-    if (updateData.price_aed) {
+    // Ensure image_url is set if images are provided
+    if (updateData.images && updateData.images.length > 0 && !updateData.image_url) {
+      updateData.image_url = updateData.images[0];
+    }
       const priceAed = parseFloat(updateData.price_aed);
       updateData.price_usd = priceAed / 3.67;
       updateData.price = `AED ${priceAed.toFixed(2)}`;
