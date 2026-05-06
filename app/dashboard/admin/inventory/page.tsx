@@ -111,11 +111,16 @@ const InventoryPage = () => {
         body: JSON.stringify(body),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         window.location.reload();
+      } else {
+        alert(data.error || 'Failed to save product');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Failed to save product:', error);
+      alert(error.message || 'An unexpected error occurred');
     } finally {
       setIsSubmitting(false);
       setIsModalOpen(false);

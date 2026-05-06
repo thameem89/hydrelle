@@ -6,17 +6,15 @@ import { getJsonProducts } from '@/lib/json-db';
 
 export async function GET() {
   try {
-    // Try Supabase first
     const supabaseProducts = await getAllProducts();
     if (supabaseProducts) {
       return NextResponse.json({ products: supabaseProducts });
     }
 
-    // Fallback to JSON
     const products = getJsonProducts();
     return NextResponse.json({ products });
-  } catch (error) {
-    return NextResponse.json({ success: false, error: 'Failed to fetch products' }, { status: 500 });
+  } catch (error: any) {
+    return NextResponse.json({ success: false, error: error.message || 'Failed to fetch products' }, { status: 500 });
   }
 }
 
@@ -24,7 +22,6 @@ export async function POST(request: Request) {
   try {
     const newProduct = await request.json();
     
-    // Calculate values
     const priceAed = parseFloat(newProduct.price_aed) || 0;
     const productToSave = {
       name: newProduct.name || 'Unnamed Product',
@@ -44,10 +41,14 @@ export async function POST(request: Request) {
       price: `AED ${priceAed.toFixed(2)}`
     };
 
-    // Try Supabase
-    const supabaseResult = await addProduct(productToSave);
-    if (supabaseResult) {
-      return NextResponse.json({ success: true, product: supabaseResult });
+    try {
+      const supabaseResult = await addProduct(productToSave);
+      if (supabaseResult) {
+        return NextResponse.json({ success: true, product: supabaseResult });
+      }
+    } catch (supabaseError: any) {
+      console.error('Supabase Error:', supabaseError);
+      return NextResponse.json({ success: false, error: `Supabase Error: ${supabaseError.message}` }, { status: 500 });
     }
 
     // Fallback to JSON
@@ -63,11 +64,12 @@ export async function POST(request: Request) {
     fs.writeFileSync(filePath, JSON.stringify(updatedData, null, 2));
 
     return NextResponse.json({ success: true, product: finalProduct });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error saving product:', error);
-    return NextResponse.json({ success: false, error: 'Failed to save product' }, { status: 500 });
+    return NextResponse.json({ success: false, error: error.message || 'Failed to save product' }, { status: 500 });
   }
 }
+
 
 export async function PUT(request: Request) {
   try {
