@@ -22,6 +22,7 @@ export async function POST(request: Request) {
   try {
     const newProduct = await request.json();
     
+    const priceAed = parseFloat(newProduct.price_aed) || 0;
     const images = newProduct.images || [];
     const productToSave = {
       name: newProduct.name || 'Unnamed Product',
