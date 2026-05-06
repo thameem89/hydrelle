@@ -12,9 +12,19 @@ import Image from 'next/image';
 import Footer from '@/components/Footer';
 
 export default function Home() {
-  const products = getProducts();
+  const [products, setProducts] = React.useState<any[]>([]);
+  const [loading, setLoading] = React.useState(true);
 
-  return (
+  React.useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await getProducts();
+      setProducts(data);
+      setLoading(false);
+    };
+    fetchProducts();
+  }, []);
+
+  if (loading) return null; // Or a skeleton loader
     <main className="min-h-screen bg-cream">
       <Navbar />
       <MiniCart />

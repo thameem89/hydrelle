@@ -1,11 +1,12 @@
 import productsData from '../hydrelle_products.json';
 import { Product } from './types';
+import { getAllProducts } from './database';
 
-export function getProducts(): Product[] {
-  const data: any = productsData;
-  const productsArray = data.products ? data.products : data;
-
-  return productsArray.map((item: any) => {
+export async function getProducts(): Promise<Product[]> {
+  try {
+    const productsArray = await getAllProducts();
+    
+    return productsArray.map((item: any) => {
     // Extract ID
     const id = item.id ? String(item.id) : (item.url ? item.url.split('/').pop() : Math.random().toString(36).substr(2, 9));
     
@@ -46,6 +47,7 @@ export function getProducts(): Product[] {
   });
 }
 
-export function getProductById(id: string): Product | undefined {
-  return getProducts().find(p => p.id === id);
+export async function getProductById(id: string): Promise<Product | undefined> {
+  const products = await getProducts();
+  return products.find(p => String(p.id) === String(id));
 }

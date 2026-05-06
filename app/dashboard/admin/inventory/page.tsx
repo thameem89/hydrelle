@@ -38,14 +38,22 @@ const InventoryPage = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('/api/products');
+      console.log('Inventory: Fetching products...');
+      const response = await fetch('/api/products?t=' + Date.now(), {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache'
+        }
+      });
       const data = await response.json();
+      console.log('Inventory: Received data:', data);
       const productsArray = data.products || data;
       // Map to include displayPrice and numericPrice like the lib does
       const formatted = productsArray.map((p: any) => ({
         ...p,
         numericPrice: p.price_aed || 0,
-        displayPrice: `AED ${p.price_aed?.toFixed(2)}`
+        displayPrice: p.price || `AED ${p.price_aed?.toFixed(2)}`
       }));
       setProducts(formatted);
     } catch (error) {

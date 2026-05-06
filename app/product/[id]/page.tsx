@@ -14,8 +14,31 @@ import { cn, formatUSD } from '@/lib/utils';
 const ProductPage = () => {
   const { id } = useParams();
   const router = useRouter();
-  const product = getProductById(id as string);
+  const [product, setProduct] = React.useState<any>(null);
+  const [loading, setLoading] = React.useState(true);
   const { addItem } = useCart();
+  const [activeMedia, setActiveMedia] = React.useState<string>('');
+  const [mediaType, setMediaType] = React.useState<'image' | 'video'>('image');
+
+  React.useEffect(() => {
+    const fetchProduct = async () => {
+      const data = await getProductById(id as string);
+      if (data) {
+        setProduct(data);
+        setActiveMedia(data.image_url);
+      }
+      setLoading(false);
+    };
+    fetchProduct();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-cream">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-botanical-dark"></div>
+      </div>
+    );
+  }
 
   if (!product) {
     return (
@@ -29,9 +52,6 @@ const ProductPage = () => {
       </div>
     );
   }
-
-  const [activeMedia, setActiveMedia] = React.useState<string>(product.image_url);
-  const [mediaType, setMediaType] = React.useState<'image' | 'video'>('image');
 
   const allMedia = [
     ...(product.images || [product.image_url]).map(src => ({ src, type: 'image' as const })),

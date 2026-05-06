@@ -39,7 +39,15 @@ const salesData = [
 ];
 
 const AdminOverview = () => {
-  const products = getProducts().slice(0, 5);
+  const [products, setProducts] = React.useState<any[]>([]);
+  
+  React.useEffect(() => {
+    const fetchTopProducts = async () => {
+      const data = await getProducts();
+      setProducts(data.slice(0, 5));
+    };
+    fetchTopProducts();
+  }, []);
 
   const stats = [
     { name: 'Total Revenue', value: 'AED 124,500', trend: '+12.5%', icon: DollarSign, color: 'bg-green-50 text-green-600' },
