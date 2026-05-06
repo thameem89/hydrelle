@@ -28,7 +28,8 @@ const InventoryPage = () => {
     price_aed: '',
     amazon_link: '',
     description: '',
-    image_url: ''
+    image_url: '',
+    images: [] as string[]
   });
 
   useEffect(() => {
@@ -67,7 +68,8 @@ const InventoryPage = () => {
       price_aed: (product.numericPrice || product.price_aed || '').toString(),
       amazon_link: product.amazon_link || '',
       description: product.description || '',
-      image_url: product.image_url || ''
+      image_url: product.image_url || '',
+      images: product.images || []
     });
     setIsModalOpen(true);
   };
@@ -124,7 +126,7 @@ const InventoryPage = () => {
         <button 
           onClick={() => {
             setEditingProduct(null);
-            setFormData({ name: '', category: 'Serum', price_aed: '', amazon_link: '', description: '', image_url: '' });
+            setFormData({ name: '', category: 'Serum', price_aed: '', amazon_link: '', description: '', image_url: '', images: [] });
             setIsModalOpen(true);
           }}
           className="flex items-center gap-2 bg-botanical-dark text-cream px-6 py-3 rounded-full text-xs font-bold hover:bg-earth-deep transition-all shadow-lg shadow-botanical-dark/10"
@@ -208,15 +210,61 @@ const InventoryPage = () => {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft px-1">Image URL</label>
-                <input 
-                  type="text" 
-                  value={formData.image_url}
-                  onChange={(e) => setFormData({...formData, image_url: e.target.value})}
-                  placeholder="https://m.media-amazon.com/..."
-                  className="w-full px-5 py-3 bg-white border border-earth-soft/10 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-botanical-dark/10 transition-all"
-                />
+              <div className="space-y-4">
+                <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft px-1">Product Gallery</label>
+                
+                {/* Main Featured Image */}
+                <div className="space-y-2">
+                  <p className="text-[10px] text-earth-soft italic px-1">Main Featured Image (URL)</p>
+                  <input 
+                    type="text" 
+                    value={formData.image_url}
+                    onChange={(e) => setFormData({...formData, image_url: e.target.value})}
+                    placeholder="https://m.media-amazon.com/..."
+                    className="w-full px-5 py-3 bg-white border border-earth-soft/10 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-botanical-dark/10 transition-all"
+                  />
+                </div>
+
+                {/* Gallery Management */}
+                <div className="space-y-3">
+                  <p className="text-[10px] text-earth-soft italic px-1">Thumbnails ({formData.images?.length || 0})</p>
+                  <div className="grid grid-cols-2 gap-4">
+                    {(formData as any).images?.map((img: string, idx: number) => (
+                      <div key={idx} className="relative group aspect-square bg-white rounded-xl border border-earth-soft/5 overflow-hidden">
+                        <img src={img} alt="" className="object-cover w-full h-full" />
+                        <button 
+                          type="button"
+                          onClick={() => {
+                            const newImages = [...(formData as any).images];
+                            newImages.splice(idx, 1);
+                            setFormData({...formData, images: newImages} as any);
+                          }}
+                          className="absolute top-2 right-2 p-1.5 bg-red-500 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <Trash2 size={12} />
+                        </button>
+                      </div>
+                    ))}
+                    <div className="aspect-square bg-white border-2 border-dashed border-earth-soft/10 rounded-xl flex flex-col items-center justify-center p-4 text-center space-y-2">
+                      <Plus size={20} className="text-earth-soft" />
+                      <input 
+                        type="text"
+                        placeholder="Add URL"
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            const val = (e.target as HTMLInputElement).value;
+                            if (val) {
+                              setFormData({...formData, images: [...((formData as any).images || []), val]} as any);
+                              (e.target as HTMLInputElement).value = '';
+                            }
+                          }
+                        }}
+                        className="w-full text-[10px] bg-transparent text-center focus:outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className="space-y-2">
