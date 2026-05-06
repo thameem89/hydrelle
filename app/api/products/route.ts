@@ -43,3 +43,43 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false, error: 'Failed to save product' }, { status: 500 });
   }
 }
+
+export async function PUT(request: Request) {
+  try {
+    const updatedProduct = await request.json();
+    const filePath = path.join(process.cwd(), 'hydrelle_products.json');
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const data = JSON.parse(fileContent);
+
+    const index = data.products.findIndex((p: any) => String(p.id) === String(updatedProduct.id));
+    if (index === -1) {
+      return NextResponse.json({ success: false, error: 'Product not found' }, { status: 404 });
+    }
+
+    data.products[index] = { ...data.products[index], ...updatedProduct };
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+
+    return NextResponse.json({ success: true, product: data.products[index] });
+  } catch (error) {
+    return NextResponse.json({ success: false, error: 'Failed to update product' }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+    
+    const filePath = path.join(process.cwd(), 'hydrelle_products.json');
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const data = JSON.parse(fileContent);
+
+    data.products = data.products.filter((p: any) => String(p.id) !== String(id));
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    return NextResponse.json({ success: false, error: 'Failed to delete product' }, { status: 500 });
+  }
+}
+

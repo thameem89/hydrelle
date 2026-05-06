@@ -20,6 +20,7 @@ const InventoryPage = () => {
   const [search, setSearch] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [editingProduct, setEditingProduct] = useState<any>(null);
   const [formData, setFormData] = useState({
     name: '',
     category: 'Serum',
@@ -34,27 +35,57 @@ const InventoryPage = () => {
     p.category.toLowerCase().includes(search.toLowerCase())
   );
 
+  const handleEdit = (product: any) => {
+    setEditingProduct(product);
+    setFormData({
+      name: product.name,
+      category: product.category,
+      price_aed: product.numericPrice.toString(),
+      amazon_link: product.amazon_link || '',
+      description: product.description || '',
+      image_url: product.image_url || ''
+    });
+    setIsModalOpen(true);
+  };
+
+  const handleDelete = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this product?')) return;
+    
+    try {
+      const response = await fetch(`/api/products?id=${id}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error('Failed to delete product:', error);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
+      const method = editingProduct ? 'PUT' : 'POST';
+      const body = editingProduct ? { ...formData, id: editingProduct.id } : formData;
+
       const response = await fetch('/api/products', {
-        method: 'POST',
+        method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(body),
       });
 
       if (response.ok) {
-        // Refresh products after success
-        // In a real app we'd get the new list from server, but here we can just reload or fetch again
         window.location.reload();
       }
     } catch (error) {
-      console.error('Failed to add product:', error);
+      console.error('Failed to save product:', error);
     } finally {
       setIsSubmitting(false);
       setIsModalOpen(false);
+      setEditingProduct(null);
     }
   };
 
@@ -67,7 +98,11 @@ const InventoryPage = () => {
           <p className="text-earth-deep font-light">Manage your botanical collection and stock levels.</p>
         </div>
         <button 
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => {
+            setEditingProduct(null);
+            setFormData({ name: '', category: 'Serum', price_aed: '', amazon_link: '', description: '', image_url: '' });
+            setIsModalOpen(true);
+          }}
           className="flex items-center gap-2 bg-botanical-dark text-cream px-6 py-3 rounded-full text-xs font-bold hover:bg-earth-deep transition-all shadow-lg shadow-botanical-dark/10"
         >
           <Plus size={16} />
@@ -75,7 +110,7 @@ const InventoryPage = () => {
         </button>
       </div>
 
-      {/* Add Product Modal */}
+      {/* Product Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
           <motion.div 
@@ -84,7 +119,9 @@ const InventoryPage = () => {
             className="bg-cream w-full max-w-xl rounded-[2.5rem] p-8 md:p-10 shadow-2xl border border-botanical-dark/5 max-h-[90vh] overflow-y-auto"
           >
             <div className="flex justify-between items-start mb-8">
-              <h2 className="text-3xl font-serif text-botanical-dark">Add Botanical.</h2>
+              <h2 className="text-3xl font-serif text-botanical-dark">
+                {editingProduct ? 'Edit Botanical.' : 'Add Botanical.'}
+              </h2>
               <button 
                 onClick={() => setIsModalOpen(false)}
                 className="text-earth-deep hover:text-botanical-dark transition-colors"
@@ -182,7 +219,7 @@ const InventoryPage = () => {
                   disabled={isSubmitting}
                   className="flex-1 px-8 py-4 bg-botanical-dark text-cream rounded-full text-xs font-bold hover:bg-earth-deep transition-all shadow-lg shadow-botanical-dark/10 disabled:opacity-50 uppercase tracking-widest"
                 >
-                  {isSubmitting ? 'Adding...' : 'Add Product'}
+                  {isSubmitting ? (editingProduct ? 'Updating...' : 'Adding...') : (editingProduct ? 'Update Product' : 'Add Product')}
                 </button>
               </div>
             </form>
@@ -269,10 +306,16 @@ const InventoryPage = () => {
                     </td>
                     <td className="px-8 py-6 text-right">
                       <div className="flex justify-end gap-2">
-                        <button className="p-2 hover:bg-botanical-light/20 rounded-lg text-earth-soft hover:text-botanical-dark transition-colors">
+                        <button 
+                          onClick={() => handleEdit(product)}
+                          className="p-2 hover:bg-botanical-light/20 rounded-lg text-earth-soft hover:text-botanical-dark transition-colors"
+                        >
                           <Edit size={16} />
                         </button>
-                        <button className="p-2 hover:bg-red-50 rounded-lg text-earth-soft hover:text-red-600 transition-colors">
+                        <button 
+                          onClick={() => handleDelete(product.id)}
+                          className="p-2 hover:bg-red-50 rounded-lg text-earth-soft hover:text-red-600 transition-colors"
+                        >
                           <Trash2 size={16} />
                         </button>
                         <button className="p-2 hover:bg-cream rounded-lg text-earth-soft transition-colors">

@@ -1,8 +1,11 @@
-import productsData from '../hydrelle_products.json';
+import fs from 'fs';
+import path from 'path';
 import { Product } from './types';
 
 export function getProducts(): Product[] {
-  const data: any = productsData;
+  const filePath = path.join(process.cwd(), 'hydrelle_products.json');
+  const fileContent = fs.readFileSync(filePath, 'utf8');
+  const data: any = JSON.parse(fileContent);
   const productsArray = data.products ? data.products : data;
 
   return productsArray.map((item: any) => {
