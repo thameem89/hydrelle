@@ -1,16 +1,13 @@
 {
-  "source": "https://www.hydrelleskincare.com",
-  "generated_date": "2026-05-05",
-  "brand": "Hydrelle",
+  "scrape_date": "2026-05-06",
+  "source": "Amazon UAE (amazon.ae)",
+  "total_products": 8,
   "products": [
     {
-      "id": 5,
-      "name": "Ampoule Face Serum 30ml",
-      "category": "Serum",
-      "price_aed": 99,
-      "price_usd": 26.975476839237057,
-      "amazon_link": "https://amzn.eu/d/0bcFPi2J",
-      "description": "Anti-Aging Face Treatment, Skin Regeneration Serum Hyaluronic Acid, Hydrating, Brightening & Youthful Glow, Slow Aging Formula Korean Skincare for All Skin Types",
+      "asin": "B0G4GGDC6C",
+      "title": "Ampoule Face Serum 30ml, Anti-Aging Face Treatment, Skin Regeneration Serum Hyaluronic Acid, Hydrating, Brightening & Youthful Glow, Slow Aging Formula Korean Skincare for All Skin Types",
+      "price": "AED99.00",
+      "videos": [],
       "images": [
         "https://m.media-amazon.com/images/I/71cCe8EOU-L._AC_SL1500_.jpg",
         "https://m.media-amazon.com/images/I/71r7LRuERXL._AC_SL1500_.jpg",
@@ -28,31 +25,13 @@
         "https://m.media-amazon.com/images/I/71s8Kn8hkvL._AC_SL1500_.jpg",
         "https://m.media-amazon.com/images/I/413MAxTeGXL._AC_.jpg",
         "https://m.media-amazon.com/images/I/71EsaqLhDBL._AC_SL1500_.jpg"
-      ],
-      "video": "https://www.hydrelleskincare.com/assets/bebechiol_ampoule_video-DmIuois8.mp4",
-      "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-kRczezZk.png",
-      "features": [
-        "Anti-Aging Face Treatment",
-        "Skin Regeneration",
-        "Hyaluronic Acid",
-        "Hydrating",
-        "Brightening",
-        "Youthful Glow",
-        "Slow Aging Formula",
-        "Korean Skincare",
-        "For All Skin Types"
-      ],
-      "image_url": "https://m.media-amazon.com/images/I/71cCe8EOU-L._AC_SL1500_.jpg",
-      "price": "AED 99.00 / $26.98"
+      ]
     },
     {
-      "id": 7,
-      "name": "ANTALA Jojoba Premium Organic Oil Face Serum",
-      "category": "Oil",
-      "price_aed": 100,
-      "price_usd": 27.247956403269754,
-      "amazon_link": "https://amzn.eu/d/00uDDO6y",
-      "description": "100% pure organic jojoba oil for deep nourishment of skin and hair.",
+      "asin": "B0G4GKRB94",
+      "title": "ANTALA Jojoba Premium Organic Oil Face Serum for Blackhead Help with Pore Care Problematic Skin, 50ml/1.69 fl oz for Men and Women",
+      "price": "AED100.00",
+      "videos": [],
       "images": [
         "https://m.media-amazon.com/images/I/51SEm2aoHsL._AC_SL1080_.jpg",
         "https://m.media-amazon.com/images/I/41QR93BSxmL._AC_.jpg",
@@ -72,26 +51,13 @@
         "https://m.media-amazon.com/images/I/31ywATGDGwL._AC_.jpg",
         "https://m.media-amazon.com/images/I/51FapmrR50L._AC_SL1080_.jpg",
         "https://m.media-amazon.com/images/I/61QBr4Tqh3L._AC_SL1080_.jpg"
-      ],
-      "video": "https://www.hydrelleskincare.com/assets/jojoba_oil_video-0kQevvUN.mp4",
-      "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-Cbe5RR57.png",
-      "features": [
-        "100% Pure Organic",
-        "Jojoba Oil",
-        "Deep Nourishment",
-        "For Skin and Hair"
-      ],
-      "image_url": "https://m.media-amazon.com/images/I/51SEm2aoHsL._AC_SL1080_.jpg",
-      "price": "AED 100.00 / $27.25"
+      ]
     },
     {
-      "id": 8,
-      "name": "Pore 55% Skin Texture Pad",
-      "category": "Exfoliator",
-      "price_aed": 90,
-      "price_usd": 24.52316076294278,
-      "amazon_link": "https://amzn.eu/d/0imcjuwN",
-      "description": "Aha Bha Lha, Retinol & Rice Extract For Enlarged Pores, Textured Skin, Sebum Control, Exfoliating Toner Pads Glass Non-Irritating, Korean Skincare(60Ct)",
+      "asin": "B0F6TB2BBK",
+      "title": "Pore 55% Skin Texure Pad – Aha Bha Lha, Retinol & Rice Extract For Enlarged Pores, Textured Skin, Sebum Control, Exfoliating Toner Pads Glass Non-Irritating, Korean Skincare(60Ct)",
+      "price": "AED90.00",
+      "videos": [],
       "images": [
         "https://m.media-amazon.com/images/I/71z5AA347tL._AC_SL1500_.jpg",
         "https://m.media-amazon.com/images/I/71hfnqRpl6L._AC_SL1500_.jpg",
@@ -105,33 +71,13 @@
         "https://m.media-amazon.com/images/I/41b669GKSpL._AC_.jpg",
         "https://m.media-amazon.com/images/I/41PZkq4gNkL._AC_.jpg",
         "https://m.media-amazon.com/images/I/71ukOsnkv9L._AC_SL1500_.jpg"
-      ],
-      "video": "https://www.hydrelleskincare.com/assets/pore_skin_pad_video-C6l93QWY.mp4",
-      "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-DD3BW7oE.png",
-      "features": [
-        "AHA BHA LHA Formula",
-        "Retinol",
-        "Rice Extract",
-        "Enlarged Pores Treatment",
-        "Textured Skin Improvement",
-        "Sebum Control",
-        "Exfoliating Toner Pads",
-        "Glass Container",
-        "Non-Irritating",
-        "Korean Skincare",
-        "60 Count"
-      ],
-      "image_url": "https://m.media-amazon.com/images/I/71z5AA347tL._AC_SL1500_.jpg",
-      "price": "AED 90.00 / $24.52"
+      ]
     },
     {
-      "id": 9,
-      "name": "Skin Texture 27% Rice Serum",
-      "category": "Serum",
-      "price_aed": 110,
-      "price_usd": 29.97275204359673,
-      "amazon_link": "https://amzn.eu/d/09AlJkYi",
-      "description": "Anti-aging, Skin Texture Improvement Pore Minimizing, Texture Refining, Korean Glass Skin Serum with Retinol & Collagen T3, 3.04 fl oz (90ml)",
+      "asin": "B0GFCNK28T",
+      "title": "Skin Texture 27% Rice Serum with Hyaluronic Acid | Anti-aging, Skin Texture Improvement Pore Minimizing, Texture Refining, Korean Glass Skin Serum with Retinol & Collagen T3, 3.04 fl oz (90ml)",
+      "price": "AED110.00",
+      "videos": [],
       "images": [
         "https://m.media-amazon.com/images/I/41Ycdfk0JlL._AC_.jpg",
         "https://m.media-amazon.com/images/I/41rToQkufeL._AC_.jpg",
@@ -149,31 +95,13 @@
         "https://m.media-amazon.com/images/I/61ui7velm3L._AC_SL1080_.jpg",
         "https://m.media-amazon.com/images/I/61hz7Dx6K6L._AC_SL1080_.jpg",
         "https://m.media-amazon.com/images/I/51OO3hTYFjL._AC_SL1080_.jpg"
-      ],
-      "video": "https://www.hydrelleskincare.com/assets/skin_texture_serum_video-BGAS4-dB.mp4",
-      "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-BMokxtOR.png",
-      "features": [
-        "Anti-aging",
-        "Skin Texture Improvement",
-        "Pore Minimizing",
-        "Texture Refining",
-        "Korean Glass Skin",
-        "Retinol",
-        "Collagen T3",
-        "27% Rice Extract",
-        "3.04 fl oz (90ml)"
-      ],
-      "image_url": "https://m.media-amazon.com/images/I/41Ycdfk0JlL._AC_.jpg",
-      "price": "AED 110.00 / $29.97"
+      ]
     },
     {
-      "id": 11,
-      "name": "Green Repair Soothing Ampoule 50ml",
-      "category": "Serum",
-      "price_aed": 100,
-      "price_usd": 27.247956403269754,
-      "amazon_link": "https://amzn.eu/d/0gPx7Gj5",
-      "description": "Deep Hydration & Skin Barrier Repair Serum with Centella Cica, Hyaluronic Acid For Deep Nourishment & Hydration, For Men & Women",
+      "asin": "B0G4GHKNRB",
+      "title": "Green Repair Soothing Ampoule 50ml – Deep Hydration & Skin Barrier Repair Serum with Centella Cica, Hyaluronic Acid For Deep Nourishment & Hydration, For Men & Women",
+      "price": "AED100.00",
+      "videos": [],
       "images": [
         "https://m.media-amazon.com/images/I/41h9CanjMML._AC_.jpg",
         "https://m.media-amazon.com/images/I/41e5YvXnbQL._AC_.jpg",
@@ -193,28 +121,13 @@
         "https://m.media-amazon.com/images/I/415x2xlDlUL._AC_.jpg",
         "https://m.media-amazon.com/images/I/619vsWzJiyL._AC_SL1080_.jpg",
         "https://m.media-amazon.com/images/I/31q0s-15SaL._AC_.jpg"
-      ],
-      "video": "https://www.hydrelleskincare.com/assets/green_repair_ampoule_video-B-Oq5b58.mp4",
-      "presentation_image": "https://www.hydrelleskincare.com/assets/introduction-BJro_PD_.png",
-      "features": [
-        "Deep Hydration",
-        "Skin Barrier Repair",
-        "Centella Cica",
-        "Hyaluronic Acid",
-        "Deep Nourishment",
-        "For Men & Women"
-      ],
-      "image_url": "https://m.media-amazon.com/images/I/41h9CanjMML._AC_.jpg",
-      "price": "AED 100.00 / $27.25"
+      ]
     },
     {
-      "id": 13,
-      "name": "Ph.D Hair Loss Control Spray",
-      "category": "Hair Care",
-      "price_aed": 110,
-      "price_usd": 29.97275204359673,
-      "amazon_link": "https://amzn.eu/d/02Bkunr6",
-      "description": "Deep Rooted Scalp Care, Root Volume Boost, Non-Sticky Vegan Scalp Serum Regen Formula Korean Hair Growth Spray for Men & Women 150ml",
+      "asin": "B0GCLC731T",
+      "title": "Ph.D Hair Loss Control Spray Deep Rooted Scalp Care, Root Volume Boost, Non-Sticky Vegan Scalp Serum Regen Formula Korean Hair Growth Spray for Men & Women 150ml",
+      "price": "AED110.00",
+      "videos": [],
       "images": [
         "https://m.media-amazon.com/images/I/61M0mWfHdaL._AC_SL1080_.jpg",
         "https://m.media-amazon.com/images/I/41omLpjQa3L._AC_.jpg",
@@ -234,30 +147,13 @@
         "https://m.media-amazon.com/images/I/61FYfguFOzL._AC_SL1080_.jpg",
         "https://m.media-amazon.com/images/I/41wcJVV1fuL._AC_.jpg",
         "https://m.media-amazon.com/images/I/41s4Q8WnZBL._AC_.jpg"
-      ],
-      "video": null,
-      "presentation_image": null,
-      "features": [
-        "Deep Rooted Scalp Care",
-        "Root Volume Boost",
-        "Non-Sticky",
-        "Vegan",
-        "Scalp Serum Regen Formula",
-        "Korean Hair Growth Spray",
-        "For Men & Women",
-        "150ml"
-      ],
-      "image_url": "https://m.media-amazon.com/images/I/61M0mWfHdaL._AC_SL1080_.jpg",
-      "price": "AED 110.00 / $29.97"
+      ]
     },
     {
-      "id": 14,
-      "name": "3X Vita Aurora Brightening and Pigmentation Care Face Serum",
-      "category": "Spray",
-      "price_aed": 89,
-      "price_usd": 24.250681198910083,
-      "amazon_link": "https://amzn.eu/d/0bBdVhV8",
-      "description": "3X Vita Aurora Brightening and Pigmentation Care Face Serum Dark Spot, 10% Niacinamide with Madewhite & Rosehip Oil,Glow Deep Serum, Skin Tone Corrector, Daily Korean Skincare for Men and Women 30ml",
+      "asin": "B0FJ1X9QK2",
+      "title": "3X Vita Aurora Brightening and Pigmentation Care Face Serum Dark Spot, 10% Niacinamide with Madewhite & Rosehip Oil,Glow Deep Serum, Skin Tone Corrector, Daily Korean Skincare for Men and Women 30ml",
+      "price": "AED89.00",
+      "videos": [],
       "images": [
         "https://m.media-amazon.com/images/I/51wiXU50wzL._AC_SL1500_.jpg",
         "https://m.media-amazon.com/images/I/21brL6v3GFL._AC_.jpg",
@@ -269,33 +165,13 @@
         "https://m.media-amazon.com/images/I/31shlA3bxWL._AC_.jpg",
         "https://m.media-amazon.com/images/I/31uxHyNFnKL._AC_.jpg",
         "https://m.media-amazon.com/images/I/31o6nO32eEL._AC_.jpg"
-      ],
-      "video": null,
-      "presentation_image": null,
-      "features": [
-        "Brightening",
-        "Pigmentation Care",
-        "Dark Spot Treatment",
-        "10% Niacinamide",
-        "Madewhite",
-        "Rosehip Oil",
-        "Glow Deep Serum",
-        "Skin Tone Corrector",
-        "Daily Korean Skincare",
-        "For Men and Women",
-        "30ml"
-      ],
-      "image_url": "https://m.media-amazon.com/images/I/51wiXU50wzL._AC_SL1500_.jpg",
-      "price": "AED 89.00 / $24.25"
+      ]
     },
     {
-      "id": 15,
-      "name": "Ph.D. Daily Sunscreen Face SPF 50+/PA++++",
-      "category": "Sunscreen",
-      "price_aed": 100,
-      "price_usd": 27.247956403269754,
-      "amazon_link": "https://amzn.eu/d/09L5Iry6",
-      "description": "Resilience, 50ml | Melanin Control Formula Korean Sunscreen Sunblock for Face for Men and Women Skincare",
+      "asin": "B0GDGNBL27",
+      "title": "Ph.D. Daily Sunscreen Face SPF 50+/PA++++, Resilience, 50ml | Melanin Control Formula Korean Sunscreen Sunblock for Face for Men and Women Skincare",
+      "price": "AED100.00",
+      "videos": [],
       "images": [
         "https://m.media-amazon.com/images/I/41J3H7KHV0L._AC_.jpg",
         "https://m.media-amazon.com/images/I/41xQCpFKhEL._AC_.jpg",
@@ -315,19 +191,12 @@
         "https://m.media-amazon.com/images/I/61iECSK-rLL._AC_SL1080_.jpg",
         "https://m.media-amazon.com/images/I/41S6yTDKKZL._AC_.jpg",
         "https://m.media-amazon.com/images/I/61CL9g4ZMOL._AC_SL1080_.jpg"
-      ],
-      "video": null,
-      "presentation_image": null,
-      "features": [
-        "SPF 50+/PA++++",
-        "Melanin Control Formula",
-        "Korean Sunscreen",
-        "Sunblock for Face",
-        "For Men and Women",
-        "50ml"
-      ],
-      "image_url": "https://m.media-amazon.com/images/I/41J3H7KHV0L._AC_.jpg",
-      "price": "AED 100.00 / $27.25"
+      ]
     }
-  ]
+  ],
+  "summary": {
+    "total_images": 131,
+    "total_videos": 0,
+    "products_with_videos": 0
+  }
 }
