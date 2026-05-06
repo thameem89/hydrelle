@@ -60,16 +60,16 @@ export default function Home() {
             className="space-y-8"
           >
             <span className="text-[10px] uppercase tracking-[0.4em] text-earth-soft">Our Philosophy</span>
-            <h2 className="text-4xl md:text-6xl font-serif leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif leading-tight break-words">
               Where Science <br /> Meets the <br /> <span className="italic">Botanical Soul</span>
             </h2>
             <p className="text-earth-soft/80 text-lg leading-relaxed max-w-md">
               Hydrelle was born from a singular vision: to create a skincare line that doesn't force a choice between clinical effectiveness and organic purity.
             </p>
             <div className="pt-4">
-              <button className="border-b border-cream/30 pb-2 text-xs uppercase tracking-widest hover:text-earth-soft transition-colors">
+              <Link href="/story" className="inline-block border-b border-cream/30 pb-2 text-xs uppercase tracking-widest hover:text-earth-soft transition-colors">
                 Learn more about our process
-              </button>
+              </Link>
             </div>
           </motion.div>
           
