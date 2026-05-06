@@ -18,11 +18,45 @@ import { cn } from '@/lib/utils';
 const InventoryPage = () => {
   const [products, setProducts] = useState(getProducts());
   const [search, setSearch] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    category: 'Serum',
+    price_aed: '',
+    amazon_link: '',
+    description: '',
+    image_url: ''
+  });
 
   const filteredProducts = products.filter(p => 
     p.name.toLowerCase().includes(search.toLowerCase()) || 
     p.category.toLowerCase().includes(search.toLowerCase())
   );
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/products', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Refresh products after success
+        // In a real app we'd get the new list from server, but here we can just reload or fetch again
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error('Failed to add product:', error);
+    } finally {
+      setIsSubmitting(false);
+      setIsModalOpen(false);
+    }
+  };
 
   return (
     <div className="space-y-10">
@@ -32,11 +66,129 @@ const InventoryPage = () => {
           <h1 className="text-4xl md:text-5xl font-serif text-botanical-dark">Inventory.</h1>
           <p className="text-earth-deep font-light">Manage your botanical collection and stock levels.</p>
         </div>
-        <button className="flex items-center gap-2 bg-botanical-dark text-cream px-6 py-3 rounded-full text-xs font-bold hover:bg-earth-deep transition-all shadow-lg shadow-botanical-dark/10">
+        <button 
+          onClick={() => setIsModalOpen(true)}
+          className="flex items-center gap-2 bg-botanical-dark text-cream px-6 py-3 rounded-full text-xs font-bold hover:bg-earth-deep transition-all shadow-lg shadow-botanical-dark/10"
+        >
           <Plus size={16} />
           Add New Product
         </button>
       </div>
+
+      {/* Add Product Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-cream w-full max-w-xl rounded-[2.5rem] p-8 md:p-10 shadow-2xl border border-botanical-dark/5 max-h-[90vh] overflow-y-auto"
+          >
+            <div className="flex justify-between items-start mb-8">
+              <h2 className="text-3xl font-serif text-botanical-dark">Add Botanical.</h2>
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="text-earth-deep hover:text-botanical-dark transition-colors"
+              >
+                ✕
+              </button>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft px-1">Product Name</label>
+                  <input 
+                    required
+                    type="text" 
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    placeholder="e.g. Rice Serum"
+                    className="w-full px-5 py-3 bg-white border border-earth-soft/10 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-botanical-dark/10 transition-all"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft px-1">Category</label>
+                  <select 
+                    value={formData.category}
+                    onChange={(e) => setFormData({...formData, category: e.target.value})}
+                    className="w-full px-5 py-3 bg-white border border-earth-soft/10 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-botanical-dark/10 transition-all appearance-none"
+                  >
+                    <option value="Serum">Serum</option>
+                    <option value="Oil">Oil</option>
+                    <option value="Exfoliator">Exfoliator</option>
+                    <option value="Mask">Mask</option>
+                    <option value="Toner">Toner</option>
+                    <option value="Hair Care">Hair Care</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft px-1">Price (AED)</label>
+                  <input 
+                    required
+                    type="number" 
+                    value={formData.price_aed}
+                    onChange={(e) => setFormData({...formData, price_aed: e.target.value})}
+                    placeholder="99.00"
+                    className="w-full px-5 py-3 bg-white border border-earth-soft/10 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-botanical-dark/10 transition-all"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft px-1">Amazon Link</label>
+                  <input 
+                    type="url" 
+                    value={formData.amazon_link}
+                    onChange={(e) => setFormData({...formData, amazon_link: e.target.value})}
+                    placeholder="https://amazon.ae/..."
+                    className="w-full px-5 py-3 bg-white border border-earth-soft/10 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-botanical-dark/10 transition-all"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft px-1">Image URL</label>
+                <input 
+                  type="text" 
+                  value={formData.image_url}
+                  onChange={(e) => setFormData({...formData, image_url: e.target.value})}
+                  placeholder="https://m.media-amazon.com/..."
+                  className="w-full px-5 py-3 bg-white border border-earth-soft/10 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-botanical-dark/10 transition-all"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft px-1">Description</label>
+                <textarea 
+                  rows={3}
+                  value={formData.description}
+                  onChange={(e) => setFormData({...formData, description: e.target.value})}
+                  placeholder="Tell the story of this product..."
+                  className="w-full px-5 py-4 bg-white border border-earth-soft/10 rounded-3xl text-sm focus:outline-none focus:ring-2 focus:ring-botanical-dark/10 transition-all resize-none"
+                />
+              </div>
+
+              <div className="pt-4 flex gap-4">
+                <button 
+                  type="button"
+                  onClick={() => setIsModalOpen(false)}
+                  className="flex-1 px-8 py-4 border border-earth-soft/10 rounded-full text-xs font-bold text-earth-deep hover:bg-white transition-all uppercase tracking-widest"
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-1 px-8 py-4 bg-botanical-dark text-cream rounded-full text-xs font-bold hover:bg-earth-deep transition-all shadow-lg shadow-botanical-dark/10 disabled:opacity-50 uppercase tracking-widest"
+                >
+                  {isSubmitting ? 'Adding...' : 'Add Product'}
+                </button>
+              </div>
+            </form>
+          </motion.div>
+        </div>
+      )}
 
       {/* Filters & Search */}
       <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
@@ -98,7 +250,7 @@ const InventoryPage = () => {
                       </span>
                     </td>
                     <td className="px-8 py-6 font-medium text-earth-deep">
-                      {product.displayPrice.split('/')[0]}
+                      {product.displayPrice ? product.displayPrice.split('/')[0] : `AED ${product.numericPrice}`}
                     </td>
                     <td className="px-8 py-6">
                       <div className="space-y-2 max-w-[120px]">
