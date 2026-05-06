@@ -220,7 +220,7 @@ const ProductPage = () => {
                 <div className="space-y-4">
                   <h4 className="text-[10px] uppercase tracking-widest font-bold text-botanical-dark">Key Benefits</h4>
                   <ul className="grid grid-cols-1 gap-3">
-                    {(product.details.features || product.details.benefits || []).map((feature, i) => (
+                    {(product.details.features || product.details.benefits || []).map((feature: string, i: number) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-earth-deep font-light">
                         <Sparkles size={14} className="text-botanical-dark mt-1 flex-shrink-0" />
                         {feature}
