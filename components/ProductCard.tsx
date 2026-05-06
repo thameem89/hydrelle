@@ -23,7 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       viewport={{ once: true }}
       className="group flex flex-col items-center text-center"
     >
-      <div className="relative w-full aspect-square overflow-hidden bg-white/50 border border-earth-soft/10 p-8 flex items-center justify-center">
+      <div className="relative w-full aspect-square overflow-hidden bg-white/50 border border-earth-soft/10 p-0 flex items-center justify-center">
         <Link href={`/product/${product.id}`} className="w-full h-full relative">
           <Image
             src={product.image_url}

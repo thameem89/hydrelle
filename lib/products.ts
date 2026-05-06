@@ -25,6 +25,11 @@ export function getProducts(): Product[] {
       videos = [item.video];
     }
     
+    // Fallback to local video if still empty
+    if (videos.length === 0) {
+      videos = ['/hero/Skincare.mp4'];
+    }
+    
     // Details
     const details = item.details || {
       product_presentation: item.description,

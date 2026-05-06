@@ -8,21 +8,24 @@ import Image from 'next/image';
 const slides = [
   {
     video: '/hero/Skincare.mp4',
-    tag: 'Radiance Redefined',
-    title: <>Pure Nature, <br /><span className="italic">Scientific Care</span></>,
-    description: 'Experience the harmony of botanical extracts and clinical precision. Formulated to reveal your skin\'s most natural glow.',
+    tag: 'Bestseller',
+    title: <>Ampoule <br /><span className="italic">Face Serum</span></>,
+    description: 'Anti-Aging Face Treatment with Hyaluronic Acid for a youthful, radiant glow. Experience the pinnacle of Korean skincare.',
+    cta: '/product/5'
   },
   {
-    image: '/hero/slide2.png',
-    tag: 'The Collection',
-    title: <>Botanical <br /><span className="italic">Excellence</span></>,
-    description: 'Each drop is a testament to our commitment to purity. Discover our range of clinically proven serums.',
+    image: 'https://m.media-amazon.com/images/I/51SEm2aoHsL._AC_SL1080_.jpg',
+    tag: 'Pure Organic',
+    title: <>Jojoba <br /><span className="italic">Premium Oil</span></>,
+    description: '100% pure organic jojoba oil for deep nourishment of skin and hair. Nature\'s most potent moisturizer.',
+    cta: '/product/7'
   },
   {
-    image: '/hero/slide3.png',
-    tag: 'Our Philosophy',
-    title: <>Reveal Your <br /><span className="italic">Inner Light</span></>,
-    description: 'Skincare is more than a routine; it\'s a moment of serenity. Join us in the journey to natural radiance.',
+    image: 'https://m.media-amazon.com/images/I/41Ycdfk0JlL._AC_.jpg',
+    tag: 'Skin Texture',
+    title: <>Rice <br /><span className="italic">Serum 27%</span></>,
+    description: 'Refine your pores and improve skin texture with our advanced rice extract formula. Achieve the glass skin look.',
+    cta: '/product/9'
   }
 ];
 
@@ -121,7 +124,7 @@ const HeroSection = () => {
             </p>
             <div className="pt-4 md:pt-8 flex justify-center gap-6">
               <Link 
-                href="#products" 
+                href={slides[current].cta || "#products"} 
                 className="inline-block bg-botanical-dark text-cream px-8 md:px-10 py-3 md:py-4 uppercase tracking-widest text-[10px] md:text-xs font-medium hover:bg-earth-deep transition-all duration-300 transform hover:-translate-y-1"
               >
                 Shop Now
