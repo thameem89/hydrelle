@@ -4,7 +4,11 @@ import { getAllProducts } from './database';
 
 export async function getProducts(): Promise<Product[]> {
   try {
-    const productsArray = await getAllProducts();
+    // 1. Try Supabase first
+    const supabaseProducts = await getAllProducts();
+    
+    // 2. Fallback to static JSON if Supabase is not configured or fails
+    const productsArray = supabaseProducts || (productsData.products ? productsData.products : productsData);
     
     return productsArray.map((item: any) => {
     // Extract ID

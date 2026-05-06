@@ -2,10 +2,18 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { getAllProducts, addProduct, updateProduct, deleteProduct } from '@/lib/database';
+import { getJsonProducts } from '@/lib/json-db';
 
 export async function GET() {
   try {
-    const products = await getAllProducts();
+    // Try Supabase first
+    const supabaseProducts = await getAllProducts();
+    if (supabaseProducts) {
+      return NextResponse.json({ products: supabaseProducts });
+    }
+
+    // Fallback to JSON
+    const products = getJsonProducts();
     return NextResponse.json({ products });
   } catch (error) {
     return NextResponse.json({ success: false, error: 'Failed to fetch products' }, { status: 500 });
@@ -44,16 +52,15 @@ export async function POST(request: Request) {
 
     // Fallback to JSON
     const filePath = path.join(process.cwd(), 'hydrelle_products.json');
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-    const data = JSON.parse(fileContent);
+    const products = getJsonProducts();
 
     const finalProduct = {
       ...productToSave,
-      id: Math.max(...data.products.map((p: any) => p.id || 0)) + 1
+      id: Math.max(...products.map((p: any) => p.id || 0)) + 1
     };
 
-    data.products.push(finalProduct);
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+    const updatedData = { products: [...products, finalProduct] };
+    fs.writeFileSync(filePath, JSON.stringify(updatedData, null, 2));
 
     return NextResponse.json({ success: true, product: finalProduct });
   } catch (error) {
@@ -82,18 +89,18 @@ export async function PUT(request: Request) {
 
     // Fallback to JSON
     const filePath = path.join(process.cwd(), 'hydrelle_products.json');
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-    const data = JSON.parse(fileContent);
+    const products = getJsonProducts();
 
-    const index = data.products.findIndex((p: any) => String(p.id) === String(id));
+    const index = products.findIndex((p: any) => String(p.id) === String(id));
     if (index === -1) {
       return NextResponse.json({ success: false, error: 'Product not found' }, { status: 404 });
     }
 
-    data.products[index] = { ...data.products[index], ...updateData };
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+    products[index] = { ...products[index], ...updateData };
+    const updatedData = { products };
+    fs.writeFileSync(filePath, JSON.stringify(updatedData, null, 2));
 
-    return NextResponse.json({ success: true, product: data.products[index] });
+    return NextResponse.json({ success: true, product: products[index] });
   } catch (error) {
     return NextResponse.json({ success: false, error: 'Failed to update product' }, { status: 500 });
   }
@@ -113,16 +120,17 @@ export async function DELETE(request: Request) {
 
     // Fallback to JSON
     const filePath = path.join(process.cwd(), 'hydrelle_products.json');
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-    const data = JSON.parse(fileContent);
+    const products = getJsonProducts();
 
-    data.products = data.products.filter((p: any) => String(p.id) !== String(id));
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+    const updatedProducts = products.filter((p: any) => String(p.id) !== String(id));
+    const updatedData = { products: updatedProducts };
+    fs.writeFileSync(filePath, JSON.stringify(updatedData, null, 2));
 
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json({ success: false, error: 'Failed to delete product' }, { status: 500 });
   }
 }
+
 
 
