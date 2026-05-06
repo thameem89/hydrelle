@@ -26,8 +26,10 @@ const ProductPage = () => {
         const id = await params.id;
         const data = await getProductById(id as string);
         if (data) {
+          console.log('Fetched Product Data:', data);
           setProduct(data);
           const initialImage = data.image_url || (data.images && data.images.length > 0 ? data.images[0] : '');
+          console.log('Resolved Initial Image:', initialImage);
           setActiveMedia(initialImage);
         }
       } catch (error) {
