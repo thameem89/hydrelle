@@ -263,6 +263,8 @@ const InventoryPage = () => {
                               const result = await res.json();
                               if (result.success) {
                                 setFormData({...formData, images: [...(formData.images || []), result.url]});
+                              } else {
+                                alert(result.error || "Upload failed");
                               }
                             }
                           }}
