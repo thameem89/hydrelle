@@ -6,11 +6,7 @@ import { Users, Search, Filter, Mail, Phone, MoreHorizontal } from 'lucide-react
 import { cn } from '@/lib/utils';
 
 const CustomersPage = () => {
-  const customers = [
-    { name: 'Alex Rivera', email: 'alex@example.com', skinType: 'Combination', frequency: 'Monthly', spent: 'AED 1,250' },
-    { name: 'Sarah Chen', email: 'sarah@example.com', skinType: 'Dry', frequency: 'Quarterly', spent: 'AED 840' },
-    { name: 'Marcus Thorne', email: 'marcus@example.com', skinType: 'Oily', frequency: 'One-time', spent: 'AED 210' },
-  ];
+  const customers: any[] = [];
 
   return (
     <div className="space-y-10">

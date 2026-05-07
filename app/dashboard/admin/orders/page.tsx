@@ -17,14 +17,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const initialOrders = [
-  { id: 'ORD-8291', customer: 'Sarah Johnson', date: '2024-05-01', total: 'AED 244.00', status: 'Pending', items: 3, email: 'sarah.j@example.com' },
-  { id: 'ORD-8292', customer: 'Michael Chen', date: '2024-05-02', total: 'AED 128.50', status: 'Approved', items: 1, email: 'm.chen@example.com' },
-  { id: 'ORD-8293', customer: 'Elena Rodriguez', date: '2024-05-02', total: 'AED 450.25', status: 'Shipped', items: 5, email: 'elena.r@example.com' },
-  { id: 'ORD-8294', customer: 'David Smith', date: '2024-05-03', total: 'AED 99.00', status: 'Pending', items: 1, email: 'd.smith@example.com' },
-  { id: 'ORD-8295', customer: 'Amara Okafor', date: '2024-05-03', total: 'AED 320.00', status: 'Cancelled', items: 2, email: 'amara.o@example.com' },
-  { id: 'ORD-8296', customer: 'James Wilson', date: '2024-05-04', total: 'AED 189.90', status: 'Approved', items: 2, email: 'j.wilson@example.com' },
-];
+const initialOrders: any[] = [];
 
 const OrderManagement = () => {
   const [orders, setOrders] = useState(initialOrders);

@@ -29,13 +29,13 @@ import { cn } from '@/lib/utils';
 import { getProducts } from '@/lib/products';
 
 const salesData = [
-  { name: 'Mon', sales: 4000, subs: 2400 },
-  { name: 'Tue', sales: 3000, subs: 1398 },
-  { name: 'Wed', sales: 2000, subs: 9800 },
-  { name: 'Thu', sales: 2780, subs: 3908 },
-  { name: 'Fri', sales: 1890, subs: 4800 },
-  { name: 'Sat', sales: 2390, subs: 3800 },
-  { name: 'Sun', sales: 3490, subs: 4300 },
+  { name: 'Mon', sales: 0, subs: 0 },
+  { name: 'Tue', sales: 0, subs: 0 },
+  { name: 'Wed', sales: 0, subs: 0 },
+  { name: 'Thu', sales: 0, subs: 0 },
+  { name: 'Fri', sales: 0, subs: 0 },
+  { name: 'Sat', sales: 0, subs: 0 },
+  { name: 'Sun', sales: 0, subs: 0 },
 ];
 
 const AdminOverview = () => {
@@ -50,10 +50,10 @@ const AdminOverview = () => {
   }, []);
 
   const stats = [
-    { name: 'Total Revenue', value: 'AED 124,500', trend: '+12.5%', icon: DollarSign, color: 'bg-green-50 text-green-600' },
-    { name: 'Active Orders', value: '452', trend: '+8.2%', icon: ShoppingBag, color: 'bg-blue-50 text-blue-600' },
-    { name: 'New Customers', value: '1,205', trend: '-2.4%', icon: Users, color: 'bg-orange-50 text-orange-600' },
-    { name: 'Subscriptions', value: '842', trend: '+24.1%', icon: Calendar, color: 'bg-accent/10 text-accent' },
+    { name: 'Total Revenue', value: 'AED 0', trend: '0%', icon: DollarSign, color: 'bg-green-50 text-green-600' },
+    { name: 'Active Orders', value: '0', trend: '0%', icon: ShoppingBag, color: 'bg-blue-50 text-blue-600' },
+    { name: 'New Customers', value: '0', trend: '0%', icon: Users, color: 'bg-orange-50 text-orange-600' },
+    { name: 'Subscriptions', value: '0', trend: '0%', icon: Calendar, color: 'bg-accent/10 text-accent' },
   ];
 
   return (
