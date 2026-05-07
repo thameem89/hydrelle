@@ -403,20 +403,24 @@ const InventoryPage = () => {
           <button 
             onClick={() => {
               const headers = ['Name', 'Category', 'Price (AED)', 'Stock', 'Amazon Link'];
-              const csvData = products.map(p => [
-                `"${p.name.replace(/"/g, '""')}"`,
-                `"${p.category.replace(/"/g, '""')}"`,
-                p.numericPrice || p.price_aed,
-                p.stock || 0,
-                `"${(p.amazon_link || '').replace(/"/g, '""')}"`
-              ]);
-              const csvContent = [headers.join(','), ...csvData.map(e => e.join(","))].join("\n");
-              const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+              const csvRows = [headers.join(',')];
+              
+              products.forEach(p => {
+                const row = [
+                  `"${p.name.replace(/"/g, '""')}"`,
+                  `"${p.category.replace(/"/g, '""')}"`,
+                  p.numericPrice || p.price_aed || 0,
+                  p.stock || 0,
+                  `"${(p.amazon_link || '').replace(/"/g, '""')}"`
+                ];
+                csvRows.push(row.join(','));
+              });
+
+              const csvContent = csvRows.join("\n");
+              const encodedUri = encodeURI("data:text/csv;charset=utf-8," + csvContent);
               const link = document.createElement("a");
-              const url = URL.createObjectURL(blob);
-              link.setAttribute("href", url);
-              link.setAttribute("download", `hydrelle_inventory_${new Date().toISOString().split('T')[0]}.csv`);
-              link.style.visibility = 'hidden';
+              link.setAttribute("href", encodedUri);
+              link.setAttribute("download", `hydrelle_inventory_${new Date().toLocaleDateString().replace(/\//g, '-')}.csv`);
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);

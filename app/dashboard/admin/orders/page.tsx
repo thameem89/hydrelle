@@ -332,17 +332,9 @@ const OrderManagement = () => {
             <Filter size={20} />
           </div>
           <div>
-            <p className="text-sm font-serif">Quick Actions</p>
-            <p className="text-[10px] opacity-70 uppercase tracking-widest">Select multiple orders to process at once</p>
+            <p className="text-sm font-serif">Order Insights</p>
+            <p className="text-[10px] opacity-70 uppercase tracking-widest">Tracking and managing your customer fulfillments</p>
           </div>
-        </div>
-        <div className="flex gap-4">
-          <button className="px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all">
-            Export CSV
-          </button>
-          <button className="px-6 py-3 bg-accent text-white hover:bg-accent/90 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all shadow-lg">
-            Print Labels
-          </button>
         </div>
       </div>
     </div>
