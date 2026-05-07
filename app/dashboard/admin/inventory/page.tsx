@@ -10,7 +10,8 @@ import {
   Edit, 
   Trash2, 
   AlertCircle,
-  CheckCircle2
+  CheckCircle2,
+  Download
 } from 'lucide-react';
 import { getProducts } from '@/lib/products';
 import { cn } from '@/lib/utils';
@@ -29,7 +30,8 @@ const InventoryPage = () => {
     amazon_link: '',
     description: '',
     image_url: '',
-    images: [] as string[]
+    images: [] as string[],
+    stock: ''
   });
 
   useEffect(() => {
@@ -77,7 +79,8 @@ const InventoryPage = () => {
       amazon_link: product.amazon_link || '',
       description: product.description || '',
       image_url: product.image_url || '',
-      images: product.images || []
+      images: product.images || [],
+      stock: (product.stock || 0).toString()
     });
     setIsModalOpen(true);
   };
@@ -139,7 +142,7 @@ const InventoryPage = () => {
         <button 
           onClick={() => {
             setEditingProduct(null);
-            setFormData({ name: '', category: 'Serum', price_aed: '', amazon_link: '', description: '', image_url: '', images: [] });
+            setFormData({ name: '', category: 'Serum', price_aed: '', amazon_link: '', description: '', image_url: '', images: [], stock: '0' });
             setIsModalOpen(true);
           }}
           className="flex items-center gap-2 bg-botanical-dark text-cream px-6 py-3 rounded-full text-xs font-bold hover:bg-earth-deep transition-all shadow-lg shadow-botanical-dark/10"
@@ -218,6 +221,17 @@ const InventoryPage = () => {
                     value={formData.amazon_link}
                     onChange={(e) => setFormData({...formData, amazon_link: e.target.value})}
                     placeholder="https://amazon.ae/..."
+                    className="w-full px-5 py-3 bg-white border border-earth-soft/10 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-botanical-dark/10 transition-all"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest font-bold text-earth-soft px-1">Stock Level</label>
+                  <input 
+                    required
+                    type="number" 
+                    value={formData.stock}
+                    onChange={(e) => setFormData({...formData, stock: e.target.value})}
+                    placeholder="100"
                     className="w-full px-5 py-3 bg-white border border-earth-soft/10 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-botanical-dark/10 transition-all"
                   />
                 </div>
@@ -386,7 +400,30 @@ const InventoryPage = () => {
             <Filter size={14} />
             Filters
           </button>
-          <button className="flex-1 md:flex-none px-6 py-3 bg-white border border-earth-soft/10 rounded-2xl text-[10px] uppercase tracking-widest font-bold text-earth-deep hover:bg-cream transition-colors shadow-sm">
+          <button 
+            onClick={() => {
+              const headers = ['Name', 'Category', 'Price (AED)', 'Stock', 'Amazon Link'];
+              const csvData = products.map(p => [
+                `"${p.name.replace(/"/g, '""')}"`,
+                `"${p.category.replace(/"/g, '""')}"`,
+                p.numericPrice || p.price_aed,
+                p.stock || 0,
+                `"${(p.amazon_link || '').replace(/"/g, '""')}"`
+              ]);
+              const csvContent = [headers.join(','), ...csvData.map(e => e.join(","))].join("\n");
+              const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+              const link = document.createElement("a");
+              const url = URL.createObjectURL(blob);
+              link.setAttribute("href", url);
+              link.setAttribute("download", `hydrelle_inventory_${new Date().toISOString().split('T')[0]}.csv`);
+              link.style.visibility = 'hidden';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
+            className="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 bg-white border border-earth-soft/10 rounded-2xl text-[10px] uppercase tracking-widest font-bold text-earth-deep hover:bg-cream transition-colors shadow-sm"
+          >
+            <Download size={14} />
             Export CSV
           </button>
         </div>
@@ -412,8 +449,8 @@ const InventoryPage = () => {
               </thead>
               <tbody className="divide-y divide-earth-soft/10">
                 {filteredProducts.map((product, idx) => {
-                  const stock = 100 - idx * 12; // Mock stock
-                  const isLow = stock < 20;
+                  const stock = product.stock || 0;
+                  const isLow = stock < 10;
 
                   return (
                     <tr key={product.id} className="text-sm text-botanical-dark hover:bg-cream/10 transition-colors">
@@ -439,9 +476,30 @@ const InventoryPage = () => {
                       <td className="px-8 py-6">
                         <div className="space-y-2 max-w-[120px]">
                           <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
-                            <span className={isLow ? "text-red-500" : "text-green-600"}>
-                              {stock} in stock
-                            </span>
+                            <div className="flex items-center gap-2">
+                              <input 
+                                type="number"
+                                defaultValue={stock}
+                                onBlur={async (e) => {
+                                  const newStock = e.target.value;
+                                  if (newStock !== String(stock)) {
+                                    try {
+                                      await fetch('/api/products', {
+                                        method: 'PUT',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({ ...product, stock: newStock }),
+                                      });
+                                    } catch (err) {
+                                      console.error('Failed to update stock:', err);
+                                    }
+                                  }
+                                }}
+                                className="w-12 px-1 py-0.5 bg-cream/50 border border-earth-soft/10 rounded text-[10px] focus:outline-none focus:ring-1 focus:ring-botanical-dark/20 transition-all"
+                              />
+                              <span className={isLow ? "text-red-500" : "text-green-600"}>
+                                in stock
+                              </span>
+                            </div>
                           </div>
                           <div className="h-1.5 w-full bg-cream rounded-full overflow-hidden">
                             <div 

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { 
   LayoutDashboard, 
   ShoppingBag, 
@@ -25,6 +25,12 @@ interface SidebarProps {
 
 const Sidebar = ({ role = 'customer' }: SidebarProps) => {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleSignOut = () => {
+    localStorage.removeItem('admin_auth');
+    router.push('/dashboard/login');
+  };
 
   const customerLinks = [
     { name: 'Overview', href: '/dashboard/overview', icon: LayoutDashboard },
@@ -39,6 +45,7 @@ const Sidebar = ({ role = 'customer' }: SidebarProps) => {
     { name: 'Inventory', href: '/dashboard/admin/inventory', icon: Package },
     { name: 'Orders', href: '/dashboard/admin/orders', icon: PackageCheck },
     { name: 'Customers', href: '/dashboard/admin/customers', icon: Users },
+    { name: 'Settings', href: '/dashboard/admin/settings', icon: Settings },
   ];
 
   const links = role === 'admin' ? adminLinks : customerLinks;
@@ -79,7 +86,10 @@ const Sidebar = ({ role = 'customer' }: SidebarProps) => {
       </nav>
 
       <div className="p-6 border-t border-earth-soft/10">
-        <button className="flex items-center gap-3 px-4 py-3 w-full text-sm font-medium text-red-600 hover:bg-red-50 rounded-xl transition-all">
+        <button 
+          onClick={handleSignOut}
+          className="flex items-center gap-3 px-4 py-3 w-full text-sm font-medium text-red-600 hover:bg-red-50 rounded-xl transition-all"
+        >
           <LogOut size={18} />
           Sign Out
         </button>

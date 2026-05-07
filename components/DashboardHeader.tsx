@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Bell, Search, Menu, UserCircle } from 'lucide-react';
+import { Bell, Search, Menu, UserCircle, LogOut } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface DashboardHeaderProps {
   toggleMobileMenu: () => void;
@@ -9,6 +10,13 @@ interface DashboardHeaderProps {
 }
 
 const DashboardHeader = ({ toggleMobileMenu, role }: DashboardHeaderProps) => {
+  const router = useRouter();
+
+  const handleSignOut = () => {
+    localStorage.removeItem('admin_auth');
+    router.push('/dashboard/login');
+  };
+
   return (
     <header className="h-20 bg-white/50 backdrop-blur-md border-b border-earth-soft/10 sticky top-0 z-30 px-6 md:px-10 flex items-center justify-between">
       <div className="flex items-center gap-4">
@@ -43,6 +51,13 @@ const DashboardHeader = ({ toggleMobileMenu, role }: DashboardHeaderProps) => {
           <div className="w-10 h-10 rounded-full bg-botanical-light/30 flex items-center justify-center border-2 border-white shadow-sm overflow-hidden">
              <UserCircle size={28} className="text-botanical-dark" />
           </div>
+          <button 
+            onClick={handleSignOut}
+            className="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors ml-2"
+            title="Sign Out"
+          >
+            <LogOut size={20} />
+          </button>
         </div>
       </div>
     </header>

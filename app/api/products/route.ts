@@ -34,6 +34,7 @@ export async function POST(request: Request) {
       image_url: newProduct.image_url || (images.length > 0 ? images[0] : ''),
       images: images,
       videos: [],
+      stock: parseInt(newProduct.stock) || 0,
       details: {
         product_presentation: newProduct.description || '',
         features: [],
@@ -80,6 +81,10 @@ export async function PUT(request: Request) {
     // Ensure image_url is set if images are provided
     if (updateData.images && updateData.images.length > 0 && !updateData.image_url) {
       updateData.image_url = updateData.images[0];
+    }
+    
+    if (updateData.stock !== undefined) {
+      updateData.stock = parseInt(updateData.stock) || 0;
     }
     // Recalculate price strings
     if (updateData.price_aed) {

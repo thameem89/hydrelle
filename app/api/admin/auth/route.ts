@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
+import { getAdminPassword } from '@/lib/settings';
 
 export async function POST(request: Request) {
   try {
     const { password } = await request.json();
-    const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
+    const adminPassword = await getAdminPassword();
 
     if (password === adminPassword) {
       return NextResponse.json({ success: true });
