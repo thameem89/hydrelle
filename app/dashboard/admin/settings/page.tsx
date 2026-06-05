@@ -2,12 +2,13 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Lock, Save, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Lock, Save, CheckCircle2, AlertCircle, RotateCcw } from 'lucide-react';
 
 const SettingsPage = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
 
   const handlePasswordChange = async (e: React.FormEvent) => {
@@ -40,10 +41,37 @@ const SettingsPage = () => {
       } else {
         setMessage({ type: 'error', text: data.error || 'Failed to update password' });
       }
-    } catch (error) {
+    } catch {
       setMessage({ type: 'error', text: 'An unexpected error occurred' });
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleResetToDefault = async () => {
+    if (!confirm("Are you sure you want to reset the admin password to the default ('admin123')?")) {
+      return;
+    }
+    
+    setIsResetting(true);
+    setMessage({ type: '', text: '' });
+    try {
+      const response = await fetch('/api/admin/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ newPassword: 'admin123' }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setMessage({ type: 'success', text: "Password reset to default ('admin123') successfully" });
+      } else {
+        setMessage({ type: 'error', text: data.error || 'Failed to reset password' });
+      }
+    } catch {
+      setMessage({ type: 'error', text: 'An unexpected error occurred' });
+    } finally {
+      setIsResetting(false);
     }
   };
 
@@ -119,6 +147,23 @@ const SettingsPage = () => {
               )}
             </button>
           </form>
+
+          <div className="mt-10 pt-10 border-t border-earth-soft/10 space-y-6">
+            <div>
+              <h3 className="text-sm uppercase tracking-widest font-bold text-earth-deep">Reset Password to Default</h3>
+              <p className="text-xs text-earth-soft mt-1">Reset the dashboard password back to the default value (&apos;admin123&apos;).</p>
+            </div>
+            
+            <button
+              type="button"
+              onClick={handleResetToDefault}
+              disabled={isResetting}
+              className="flex items-center justify-center gap-2 bg-cream text-earth-deep border border-earth-soft/20 px-8 py-4 rounded-full text-xs font-bold hover:bg-earth-soft/10 transition-all disabled:opacity-50 uppercase tracking-widest w-full md:w-auto"
+            >
+              <RotateCcw size={16} />
+              {isResetting ? 'Resetting...' : 'Reset to Default'}
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -126,7 +171,7 @@ const SettingsPage = () => {
 };
 
 // Utility function for conditional classes
-function cn(...classes: any[]) {
+function cn(...classes: unknown[]) {
   return classes.filter(Boolean).join(' ');
 }
 
