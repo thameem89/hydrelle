@@ -23,7 +23,8 @@ import {
   DollarSign, 
   Activity,
   Package,
-  Calendar
+  Calendar,
+  RotateCcw
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { getProducts } from '@/lib/products';
@@ -39,6 +40,7 @@ const salesData = [
 ];
 
 const AdminOverview = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [products, setProducts] = React.useState<any[]>([]);
   
   React.useEffect(() => {
@@ -48,6 +50,28 @@ const AdminOverview = () => {
     };
     fetchTopProducts();
   }, []);
+
+  const handleResetPassword = async () => {
+    if (!confirm("Are you sure you want to reset the admin dashboard password to the default ('admin123')?")) {
+      return;
+    }
+    
+    try {
+      const response = await fetch('/api/admin/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ newPassword: 'admin123' }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        alert("Password reset to default ('admin123') successfully!");
+      } else {
+        alert("Error resetting password: " + (data.error || "Unknown error"));
+      }
+    } catch {
+      alert("An unexpected error occurred while resetting the password.");
+    }
+  };
 
   const stats = [
     { name: 'Total Revenue', value: 'AED 0', trend: '0%', icon: DollarSign, color: 'bg-green-50 text-green-600' },
@@ -64,6 +88,13 @@ const AdminOverview = () => {
           <h1 className="text-4xl md:text-5xl font-serif text-botanical-dark">Botanical Control.</h1>
           <p className="text-earth-deep font-light">Performance overview for the last 30 days.</p>
         </div>
+        <button
+          onClick={handleResetPassword}
+          className="flex items-center justify-center gap-2 bg-amber-600 text-white hover:bg-amber-700 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all shadow-md shadow-amber-600/15 cursor-pointer self-start md:self-end"
+        >
+          <RotateCcw size={14} />
+          Reset Password
+        </button>
       </div>
 
       {/* Stats Grid */}
