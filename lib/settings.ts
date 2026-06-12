@@ -7,7 +7,8 @@ const useSupabase = !!process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_P
 export async function getAdminPassword() {
   if (useSupabase) {
     try {
-      const { data, error } = await supabase
+      const adminClient = getSupabaseAdmin();
+      const { data, error } = await adminClient
         .from('settings')
         .select('value')
         .eq('key', 'admin_password')
